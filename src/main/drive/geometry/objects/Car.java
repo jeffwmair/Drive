@@ -54,6 +54,7 @@ public class Car extends Geometry {
 		body.addChild(new CarTrunk());
 		body.addChild(new CarRearWindow());
 		body.addChild(new CarChrome());
+		body.addChild(new CarWheelWells());
 		putWheelsOnCar();
 		movement = Move.COASTING;
 		carMovement = new CarMovement(this);
@@ -105,9 +106,11 @@ public class Car extends Geometry {
 		double maxTurnAngle = getAngleOnTurnCircle(turnCircleMinRadius, speed);
 
 		if (Math.abs(targetTurnAngle) > Math.abs(maxTurnAngle)) {
+			System.out.println("maxTurnAngle");
 			return maxTurnAngle;
 		} else {
-			return targetTurnAngle * speed;
+			System.out.println("targetTurn * Speed");
+			return targetTurnAngle * speed * 0.004;
 		}
 	}
 	public void setMovement(Move movement) {
