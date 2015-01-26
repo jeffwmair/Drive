@@ -38,8 +38,8 @@ public class CarController extends Controller {
 		c.setFrontWheelAngle(percent);
 	}
 	public void mouseWheelMoved(int wheelRotation) {
-//		geo.getCamera().setZoom(wheelRotation);
-//		CarMovement.RotateFactor += 0.01 * wheelRotation;
+		Camera cam = c.getCamera();
+		cam.setZoom(wheelRotation);
 	}
 	public void cmdMouseWheelMoved(int wheelMoved) {
 		Camera cam = c.getCamera();
