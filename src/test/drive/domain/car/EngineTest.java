@@ -27,6 +27,7 @@ public class EngineTest {
 		engine.update(PedalPress.Full);
 		double rpm = engine.getRpm();
 		Assert.assertEquals(rpmUpCurve.getMax(), rpm);
+		throw new RuntimeException("test!");
 	}
 
 	@Test
