@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>Drive</groupId>
 	<artifactId>Drive</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<dependencies>
 		<dependency>
 			<groupId>org.jogamp.gluegen</groupId>
@@ -52,6 +52,7 @@
 				<configuration>
 					<archive>
 						<manifest>
+							<addClasspath>true</addClasspath>
 							<mainClass>drive.Main</mainClass>
 						</manifest>
 					</archive>
