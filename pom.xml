@@ -59,6 +59,9 @@
 					<descriptorRefs>
 						<descriptorRef>jar-with-dependencies</descriptorRef>
 					</descriptorRefs>
+					<descriptors>
+						<descriptor>src/assemblies/macosx-universal-assembly.xml</descriptor>
+					</descriptors>
 				</configuration>
 				<executions>
 					<execution>
