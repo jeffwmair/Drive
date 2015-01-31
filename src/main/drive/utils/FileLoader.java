@@ -1,7 +1,8 @@
 package drive.utils;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -19,13 +20,13 @@ public class FileLoader {
 		loadedMeshes = new HashMap<String, Mesh>();
 	}
 
-	public static Material loadMaterial(String filename, boolean useKdForAmbient) throws Exception {
+	public static Material loadMaterial(String resourceName, boolean useKdForAmbient) throws Exception {
 
 		/*
 		 * only load any material once, because its the same everywhere. For now
 		 * anyway...
 		 */
-		String key = filename + Boolean.toString(useKdForAmbient);
+		String key = resourceName + Boolean.toString(useKdForAmbient);
 		Material mat = loadedMaterials.get(key);
 		if (mat != null)
 			return mat;
@@ -36,8 +37,10 @@ public class FileLoader {
 		float[] specular = new float[4];
 		float[] shinyness = new float[1];
 
+		InputStream is = getResourceStream(resourceName);
+
 		try {
-			br = new BufferedReader(new FileReader(filename));
+			br = new BufferedReader(new InputStreamReader(is));
 			String line = br.readLine();
 
 			while (line != null) {
@@ -75,14 +78,16 @@ public class FileLoader {
 		}
 
 	}
-	public static Mesh loadMesh(String filename) throws Exception {
+	public static Mesh loadMesh(String resourceName) throws Exception {
 
-		String key = filename;
+		InputStream is = getResourceStream(resourceName);
+		
+		String key = resourceName;
 		Mesh m = loadedMeshes.get(key);
 		if (m != null)
 			return m;
 
-		BufferedReader br = new BufferedReader(new FileReader(filename));
+		BufferedReader br = new BufferedReader(new InputStreamReader(is));
 		try {
 			String line = br.readLine();
 			List<Float> allVertices = new ArrayList<Float>();
@@ -174,6 +179,10 @@ public class FileLoader {
 		}
 	}
 
+	private static InputStream getResourceStream(String resourcename) {
+		return FileLoader.class.getClassLoader().getResourceAsStream("Graphics/" + resourcename);
+	}
+	
 	private static String[] getLineComponents(String line) throws Exception {
 		if (line.startsWith("v ") || line.startsWith("f ")) {
 			return line.substring(2).split(" ");

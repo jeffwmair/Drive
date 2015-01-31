@@ -2,16 +2,18 @@ package drive.utils;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 import javax.media.opengl.GL2;
 
 public class Shader {
 
-	private static String readFromFile(String filename) {
+	private static String readFromFile(InputStream inStream) {
 		StringBuilder sb = new StringBuilder();
 		BufferedReader br = null;
 		try {
-			br = new BufferedReader(new FileReader(filename));
+			br = new BufferedReader(new InputStreamReader(inStream));
 			String line = br.readLine();
 			while (line != null) {
 				sb.append(line + "\n");
@@ -25,15 +27,19 @@ public class Shader {
 		}
 	}
 
-	public static void initShaders(GL2 gl, String vertexShaderFile, String fragmentShaderFile) {
+	public static void initShaders(GL2 gl, String vertexShaderResource, String fragmentShaderResource) {
 		int v = gl.glCreateShader(GL2.GL_VERTEX_SHADER);
 		int f = gl.glCreateShader(GL2.GL_FRAGMENT_SHADER);
 
-		String vsrc = readFromFile(vertexShaderFile);
+		ClassLoader cl = Shader.class.getClassLoader();
+		InputStream vertexShaderInStream = cl.getResourceAsStream(vertexShaderResource);
+		InputStream fragmentShaderInStream = cl.getResourceAsStream(fragmentShaderResource);
+
+		String vsrc = readFromFile(vertexShaderInStream);
 		gl.glShaderSource(v, 1, new String[] { vsrc }, (int[]) null, 0);
 		gl.glCompileShader(v);
 
-		String fsrc = readFromFile(fragmentShaderFile);
+		String fsrc = readFromFile(fragmentShaderInStream);
 		gl.glShaderSource(f, 1, new String[] { fsrc }, (int[]) null, 0);
 		gl.glCompileShader(f);
 

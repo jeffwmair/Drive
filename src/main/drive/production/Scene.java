@@ -45,7 +45,7 @@ public class Scene implements GLEventListener {
 		float backColor = 1.0f;
 		gl.glClearColor(backColor, backColor, backColor, backColor);
 		Lights.setupLighting(gl);
-		Shader.initShaders(gl, "src/resources/Graphics/vertexshader.txt", "src/resources/Graphics/fragmentshader.txt");
+		Shader.initShaders(gl, "vertexshader.txt", "fragmentshader.txt");
 	}
 	@Override
 	public void reshape(GLAutoDrawable drawable, int x, int y, int width, int height) {

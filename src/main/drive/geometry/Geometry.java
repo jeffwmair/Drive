@@ -14,7 +14,6 @@ import drive.geometry.Transition.TransitionType;
 public class Geometry {
 
 	protected List<Geometry> children;
-	private final String DATAFILE_PATH = "src/resources/Graphics/";
 	private final int ITEMS_PER_VERTEX = 3;
 	private Mesh mesh;
 	private Material material;
@@ -210,8 +209,8 @@ public class Geometry {
 	}
 	protected void loadRootPart(String meshFilePrefix, String materialFilePrefix) {
 		try {
-			mesh = FileLoader.loadMesh(DATAFILE_PATH + meshFilePrefix + ".obj");
-			material = FileLoader.loadMaterial(DATAFILE_PATH + materialFilePrefix + ".mtl", true);
+			mesh = FileLoader.loadMesh(meshFilePrefix + ".obj");
+			material = FileLoader.loadMaterial(materialFilePrefix + ".mtl", true);
 			Vertex offset = mesh.getOffsetFromOrigin();
 			setOffsetFromOrigin(offset.x, offset.y, offset.z);
 		} catch (Exception e) {
