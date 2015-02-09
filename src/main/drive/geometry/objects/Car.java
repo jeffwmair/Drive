@@ -109,7 +109,6 @@ public class Car extends Geometry {
 			System.out.println("maxTurnAngle");
 			return maxTurnAngle;
 		} else {
-			System.out.println("targetTurn * Speed");
 			return targetTurnAngle * speed * 0.004;
 		}
 	}
