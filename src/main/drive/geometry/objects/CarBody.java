@@ -5,7 +5,7 @@ import drive.geometry.Geometry;
 public class CarBody extends Geometry {
 	public CarBody() {
 		super();
-		loadRootPart("body", "paint");
+		loadRootPart("body", "paint_white");
 	}
 
 }

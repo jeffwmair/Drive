@@ -5,6 +5,6 @@ import drive.geometry.Geometry;
 public class CarHood extends Geometry {
 	public CarHood() {
 		super();
-		loadRootPart("hood", "paint");
+		loadRootPart("hood", "paint_white");
 	}
 }
