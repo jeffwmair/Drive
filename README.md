@@ -3,7 +3,6 @@
 ## Build Instructions
 Import into Eclipse as a Maven project.  Maven will resolve the dependencies.  Then run!
 ## Operation
-todo: complete this section
 ### Car Control
 * left mouse - hold to accelerate
 * right mouse - hold to brake
