@@ -17,7 +17,7 @@ public class Lights {
 	static {
 		/*
 		 * From openGl Superbible 4th: light position contains x, y, and z that
-		 * spec either the lights actual position in the scene or the direction
+		 * specifies either the lights actual position in the scene or the direction
 		 * from which the light is coming.
 		 * 
 		 * The last value indicates that the light is actually present at this
@@ -31,16 +31,35 @@ public class Lights {
 		 * 
 		 * Setting to 1 puts the light at the location of the xyz points.
 		 */
-		float modelLight = 1.0f;
-		float diffLevel = 3f;
-		float specLevel = 0.25f;
-		spotlightAngle = 8;
+		
+		/**
+		 * X is the distance along XZ plane (the ground)
+		 */
+		float lightX = 20f;
+		/**
+		 * Z is the "depth" or distance "down" the XZ plane (the ground)
+		 */
+		float lightZ = -20f;
+		/**
+		 * Y is the height off the ground
+		 */
+		float lightY = 20f;
+
+		/**
+		 * Spotlight vs general unfocused (better-lit) light
+		 */
 		useSpotlight = false;
+
+		float modelLight = 1f;
+		float diffLevel = 1f;
+		float specLevel = 0.3f;
+		
+		spotlightAngle = 15f;
 		float spotlightParam = 1;
 		if (!useSpotlight)
 			spotlightParam = 0;
-		float light_position0[] = { 0, 5, 5, spotlightParam };
-		float light_direction0[] = { 0.2f, -1, -1 };
+		float light_position0[] = { lightX, lightY, lightZ, spotlightParam };
+		float light_direction0[] = { 0, -1, 0 };
 		float light_diffuse0[] = { diffLevel, diffLevel, diffLevel, 1.0f };
 		float light_specular0[] = { specLevel, specLevel, specLevel, 1.0f };
 		float model_ambient[] = { modelLight, modelLight, modelLight, 1.0f };

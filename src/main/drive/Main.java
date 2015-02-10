@@ -21,7 +21,6 @@ public class Main {
 	
 	public static void main(String[] args) {
 		run();	
-//		test();
 	}
 	
 	private static void test() {

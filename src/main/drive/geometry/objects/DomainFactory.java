@@ -30,17 +30,17 @@ public class DomainFactory {
 		for (int i = 0; i < 25; i++) {
 			for (int j = 0; j < 25; j++) {
 				Plane roadSection10Meters = new Plane();
-//				roadSection10Meters.setScale(0.75);
 				roadSection10Meters.setOverallTranslation(j * roadSeparation, 0, i * -roadSeparation);
 				geo.add(roadSection10Meters);
 			}
 		}
-		for (int i = 0; i < 10; i++) {
-			Cube cube = new Cube("black_plastic");
-			cube.setScale(10, -100, 10);
-			cube.setOverallTranslation(3.8, -1, -20*(i+1));
-			geo.add(cube);
-		}
+		// building-like cube/rectangles
+//		for (int i = 0; i < 10; i++) {
+//			Cube cube = new Cube("black_plastic");
+//			cube.setScale(10, -100, 10);
+//			cube.setOverallTranslation(3.8, -1, -20*(i+1));
+//			geo.add(cube);
+//		}
 		Car c = new Car();
 		geo.add(c);
 		return geo;
