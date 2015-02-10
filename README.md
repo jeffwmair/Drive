@@ -15,5 +15,6 @@ Import into Eclipse as a Maven project.  Maven will resolve the dependencies.  T
 * CMD (mac!) + mouse scroll zooms the camera in and out
 
 ### Pictures
-Quick screenshot of the current progress.
+Quick screenshots of the current progress.
 ![Alt text](/documentation/img/pic1.png)
+![Alt text](/documentation/img/pic2.png)
