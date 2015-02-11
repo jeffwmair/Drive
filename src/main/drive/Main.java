@@ -23,9 +23,6 @@ public class Main {
 		run();	
 	}
 	
-	private static void test() {
-		
-	}
 	private static void run() {
 		GLProfile glp = GLProfile.getDefault();
 		GLCapabilities caps = new GLCapabilities(glp);
