@@ -19,3 +19,7 @@ Quick screenshots of the current progress.
 ![Alt text](/documentation/img/pic1.png)
 ![Alt text](/documentation/img/pic2.png)
 ![Alt text](/documentation/img/pic3.png)
+
+The original:
+![Alt text](/documentation/img/original.png)
+
