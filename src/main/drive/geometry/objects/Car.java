@@ -14,7 +14,7 @@ import drive.geometry.Transition.TransitionType;
 public class Car extends Geometry {
 	public double SPEED_TO_GEO_SPACE_FRAME = 0.005; // verified Nov 17 2014
 	public static final double FRONT_WHEEL_MAX_TURN_ANGLE = 35.0;
-	final float TIRE_FRONT_TRANSLATE = -2.9f;
+	final float TIRE_FRONT_TRANSLATE = -2.85f;
 	final float TIRE_HORIZONTAL_TRANSLATE = 0.6f;
 	private CarHood hood = null;
 	private CarFrame frame = null;
@@ -50,7 +50,7 @@ public class Car extends Geometry {
 		body.addChild(new CarRoof());
 		hood = new CarHood();
 		body.addChild(hood);
-		body.addChild(new CarDoors());
+//		body.addChild(new CarDoors());
 		body.addChild(new CarTrunk());
 		body.addChild(new CarRearWindow());
 		body.addChild(new CarChrome());
