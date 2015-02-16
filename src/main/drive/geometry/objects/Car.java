@@ -51,7 +51,8 @@ public class Car extends Geometry {
 		hood = new CarHood();
 		body.addChild(hood);
 //		body.addChild(new CarDoors());
-		body.addChild(new CarTrunk());
+        body.addChild(new TailLights());
+//		body.addChild(new CarTrunk());
 		body.addChild(new CarRearWindow());
 		body.addChild(new CarChrome());
 		body.addChild(new CarWheelWells());
