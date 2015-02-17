@@ -22,3 +22,5 @@ Quick screenshots of the current progress.
 The original:
 ![Alt text](/documentation/img/original.png)
 
+Render from Blender:
+![Alt text](/documentation/img/render.png)
