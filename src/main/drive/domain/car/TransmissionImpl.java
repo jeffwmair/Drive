@@ -7,13 +7,20 @@ import drive.domain.interfaces.TransmissionGear;
 
 public class TransmissionImpl implements Transmission {
 
-	public TransmissionImpl(List<TransmissionGear> forwardGears, TransmissionGear reverse) {
+    private TransmissionGear currentGear;
+	private TransmissionGear neutral = new TransmissionGearNeutral();
 
+    public TransmissionImpl(List<TransmissionGear> forwardGears, TransmissionGear reverse) {
 		if (forwardGears.size() < 1 || forwardGears.size() > 6) {
 			throw new IllegalArgumentException("Transmission must have at least 1 and at most 6 gears");
 		}
+        currentGear = neutral;
 	}
 
+    /**
+     * Pass the torque force into the transmission to turn the gear
+     * @param engineTorque
+     */
 	@Override
 	public void update(double engineTorque) {
 
@@ -21,15 +28,12 @@ public class TransmissionImpl implements Transmission {
 
 	@Override
 	public double getTorqueLoadPct() {
-		/*
-		 * Load is based on: - what gear we are in - how fast we are going
-		 */
-		return 0;
+		return currentGear.getLoad();
 	}
 
 	@Override
 	public void shift(ShiftType shift) {
-		
+		// TODO: consider making a shift type class, and transferring any extra responsibilities there.
 	}
 
 }
