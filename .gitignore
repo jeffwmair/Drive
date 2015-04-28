@@ -1,4 +1,6 @@
 .idea/
+.settings/
+.classpath
 Drive.iml
 target
 cutlass.blend1

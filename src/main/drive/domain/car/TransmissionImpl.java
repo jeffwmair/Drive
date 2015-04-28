@@ -7,6 +7,11 @@ import drive.domain.interfaces.TransmissionGear;
 
 public class TransmissionImpl implements Transmission {
 
+    /**
+     * The transmission introduces some energy losses
+     */
+    private final double TransmissionEfficiency = 0.8;
+
     private TransmissionGear currentGear;
 	private TransmissionGear neutral = new TransmissionGearNeutral();
 
@@ -23,7 +28,7 @@ public class TransmissionImpl implements Transmission {
      */
 	@Override
 	public void update(double engineTorque) {
-
+        currentGear.applyTorque(engineTorque * TransmissionEfficiency);
 	}
 
 	@Override
