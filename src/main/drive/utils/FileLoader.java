@@ -180,7 +180,17 @@ public class FileLoader {
 	}
 
 	private static InputStream getResourceStream(String resourcename) {
-		return FileLoader.class.getClassLoader().getResourceAsStream("Graphics/" + resourcename);
+		InputStream is = null;
+		try {
+			is = FileLoader.class.getClassLoader().getResourceAsStream("Graphics/" + resourcename);
+			if (is == null) { 
+				throw new RuntimeException("Failed to load resource: " + resourcename);
+			}
+			return is;
+		}
+		catch(Exception ex) {
+			throw new RuntimeException("Failed to load resource: " + resourcename);
+		}
 	}
 	
 	private static String[] getLineComponents(String line) throws Exception {
