@@ -17,6 +17,8 @@ Import into Eclipse as a Maven project.  Maven will resolve the dependencies.  T
 ### Pictures
 Quick screenshots of the current progress.
 ![Alt text](/documentation/img/CutlassRotate.gif)
+![Alt text](/documentation/img/CutlassWheels.gif)
+![Alt text](/documentation/img/CutlassDrive.gif)
 ![Alt text](/documentation/img/pic2.png)
 
 The original:
