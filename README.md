@@ -21,8 +21,8 @@ Quick screenshots of the current progress.
 ![Alt text](/documentation/img/CutlassDrive.gif)
 ![Alt text](/documentation/img/pic2.png)
 
-The original:
-![Alt text](/documentation/img/original.png)
-
 Render from Blender:
 ![Alt text](/documentation/img/render.png)
+
+The original:
+![Alt text](/documentation/img/original.png)
