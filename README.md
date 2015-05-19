@@ -1,7 +1,17 @@
 # Drive
 3D Driving Game/Simulation in Java
-## Build Instructions
-Import into Eclipse as a Maven project.  Maven will resolve the dependencies.  Then run!
+## Getting Going
+```shell
+# clone from github
+$ git clone git@github.com:jeffwmair/Drive.git
+# switch to the newly created directory
+$ cd Drive
+# package for running
+$ mvn package
+# switch to the compilation directory
+$ cd target/
+# run the program
+$ java -jar Drive-1.0.jar
 ## Operation
 ### Car Control
 * left mouse - hold to accelerate
