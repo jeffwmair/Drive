@@ -20,10 +20,20 @@ import com.jwm.j3dfw.production.Scene;
 import com.jwm.j3dfw.controller.ControllerFactory;
 
 public class Main {
-	
+
 	public static void main(String[] args) {
 		GeometryList parts = DomainFactory.getCarOnGranularRoad();
 		ControllerFactory cf = new DriveControllerFactory();
-	 	MainFrame frame = new MainFrame(parts, cf);
+		Camera cam = null;
+		for (Geometry p : parts) {
+			if (p instanceof Car) {
+				cam = p.getCamera();
+			} 
+		}
+		if (cam == null) {
+			throw new RuntimeException("Camera not found!");
+		}
+
+		MainFrame frame = new MainFrame(parts, cf, cam);
 	}
 }
