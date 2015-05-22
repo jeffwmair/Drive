@@ -1,6 +1,6 @@
 package drive.geometry.objects;
 
-import drive.geometry.Geometry;
+import com.jwm.j3dfw.geometry.Geometry;
 
 /**
  * Created by Jeff on 2015-02-16.

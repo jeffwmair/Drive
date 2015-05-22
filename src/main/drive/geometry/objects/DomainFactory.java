@@ -3,8 +3,8 @@ package drive.geometry.objects;
 import java.util.ArrayList;
 import java.util.List;
 
-import drive.geometry.Geometry;
-import drive.geometry.GeometryList;
+import com.jwm.j3dfw.geometry.Geometry;
+import com.jwm.j3dfw.geometry.GeometryList;
 
 public class DomainFactory {
 	public static List<Geometry> getSpeedCalibrationRoadAndCar() {

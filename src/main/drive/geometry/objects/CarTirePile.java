@@ -1,7 +1,7 @@
 package drive.geometry.objects;
 
-import drive.geometry.Geometry;
-import drive.geometry.Rotation.RotationDirection;
+import com.jwm.j3dfw.geometry.Geometry;
+import com.jwm.j3dfw.geometry.Rotation.RotationDirection;
 
 public class CarTirePile extends Geometry {
 

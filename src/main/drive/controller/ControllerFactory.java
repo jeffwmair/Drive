@@ -1,8 +1,9 @@
 package drive.controller;
 
-import drive.geometry.Geometry;
 import drive.geometry.objects.Car;
 import drive.geometry.objects.CarTireDebug;
+import com.jwm.j3dfw.geometry.Geometry;
+import com.jwm.j3dfw.controller.Controller;
 
 public class ControllerFactory {
 	public static Controller getInstance(Geometry g) {

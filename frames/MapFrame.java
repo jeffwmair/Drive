@@ -12,11 +12,11 @@ import java.util.List;
 
 import javax.swing.JFrame;
 
-import drive.geometry.Geometry;
-import drive.geometry.GeometryListener;
-import drive.geometry.Rotation.RotationDirection;
-import drive.geometry.Vertex;
-import drive.geometry.objects.Car;
+import com.jwm.j3dfw.geometry.Geometry;
+import com.jwm.j3dfw.geometry.GeometryListener;
+import com.jwm.j3dfw.geometry.Rotation.RotationDirection;
+import com.jwm.j3dfw.geometry.Vertex;
+import com.jwm.j3dfw.geometry.objects.Car;
 import drive.production.Camera;
 
 @SuppressWarnings("serial")

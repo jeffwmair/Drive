@@ -6,6 +6,11 @@
 	<version>1.0</version>
 	<dependencies>
 		<dependency>
+			<groupId>com.jwm.j3dfw</groupId>
+			<artifactId>j3dfw</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
 			<groupId>org.jogamp.gluegen</groupId>
 			<artifactId>gluegen-rt-main</artifactId>
 			<version>2.0.2</version>

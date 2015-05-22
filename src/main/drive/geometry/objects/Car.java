@@ -6,10 +6,10 @@ import java.util.List;
 
 import drive.domain.car.CarMovement;
 import drive.domain.car.CarMovement.Move;
-import drive.geometry.Geometry;
-import drive.geometry.Rotation;
-import drive.geometry.Rotation.RotationDirection;
-import drive.geometry.Transition.TransitionType;
+import com.jwm.j3dfw.geometry.Geometry;
+import com.jwm.j3dfw.geometry.Rotation;
+import com.jwm.j3dfw.geometry.Rotation.RotationDirection;
+import com.jwm.j3dfw.geometry.Transition.TransitionType;
 
 public class Car extends Geometry {
 	public double SPEED_TO_GEO_SPACE_FRAME = 0.005; // verified Nov 17 2014
