@@ -11,16 +11,19 @@ import javax.media.opengl.awt.GLCanvas;
 
 import com.jogamp.opengl.util.FPSAnimator;
 
+import drive.controller.DriveControllerFactory;
 import drive.geometry.objects.Car;
 import drive.geometry.objects.DomainFactory;
 import drive.geometry.objects.Plane;
 import com.jwm.j3dfw.production.Camera;
 import com.jwm.j3dfw.production.Scene;
+import com.jwm.j3dfw.controller.ControllerFactory;
 
 public class Main {
 	
 	public static void main(String[] args) {
 		GeometryList parts = DomainFactory.getCarOnGranularRoad();
-	 	MainFrame frame = new MainFrame(parts);
+		ControllerFactory cf = new DriveControllerFactory();
+	 	MainFrame frame = new MainFrame(parts, cf);
 	}
 }
