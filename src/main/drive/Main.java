@@ -15,7 +15,6 @@ import com.jogamp.opengl.util.FPSAnimator;
 import drive.controller.DriveControllerFactory;
 import drive.geometry.objects.Car;
 import drive.geometry.objects.DomainFactory;
-import drive.geometry.objects.Plane;
 
 import com.jwm.j3dfw.production.Camera;
 import com.jwm.j3dfw.production.Scene;
