@@ -16,6 +16,7 @@ import drive.controller.DriveControllerFactory;
 import drive.geometry.objects.Car;
 import drive.geometry.objects.DomainFactory;
 import drive.geometry.objects.Plane;
+
 import com.jwm.j3dfw.production.Camera;
 import com.jwm.j3dfw.production.Scene;
 import com.jwm.j3dfw.controller.ControllerFactory;
@@ -32,6 +33,8 @@ public class Main {
 		GeometryList parts = DomainFactory.getCarOnGranularRoad();
 		ControllerFactory cf = new DriveControllerFactory();
 		Camera cam = null;
+
+		// TODO: something better than this
 		for (Geometry p : parts) {
 			if (p instanceof Car) {
 				cam = p.getCamera();
