@@ -6,12 +6,19 @@ import java.util.List;
 
 import drive.domain.car.CarMovement;
 import drive.domain.car.CarMovement.Move;
+
 import com.jwm.j3dfw.geometry.Geometry;
 import com.jwm.j3dfw.geometry.Rotation;
 import com.jwm.j3dfw.geometry.Rotation.RotationDirection;
 import com.jwm.j3dfw.geometry.Transition.TransitionType;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Car extends Geometry {
+
+	private static Logger log = LogManager.getLogger(Car.class);
+
 	public double SPEED_TO_GEO_SPACE_FRAME = 0.005; // verified Nov 17 2014
 	public static final double FRONT_WHEEL_MAX_TURN_ANGLE = 35.0;
 	final float TIRE_FRONT_TRANSLATE = -2.85f;
@@ -43,6 +50,11 @@ public class Car extends Geometry {
 
 	public Car() {
 		super();
+
+		if (log.isDebugEnabled()) {
+			log.debug("New car");
+		}
+
 		frame = new CarFrame();
 		children.add(frame);
 		CarBody body = new CarBody();

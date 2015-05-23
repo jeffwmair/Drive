@@ -1,6 +1,7 @@
 package drive;
 
 import java.awt.Frame;
+
 import com.jwm.j3dfw.utils.MainFrame;
 import com.jwm.j3dfw.geometry.Geometry;
 import com.jwm.j3dfw.geometry.GeometryList;
@@ -19,9 +20,15 @@ import com.jwm.j3dfw.production.Camera;
 import com.jwm.j3dfw.production.Scene;
 import com.jwm.j3dfw.controller.ControllerFactory;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Main {
 
+	private static Logger log = LogManager.getLogger(Main.class);
+
 	public static void main(String[] args) {
+		log.info("Starting application");
 		GeometryList parts = DomainFactory.getCarOnGranularRoad();
 		ControllerFactory cf = new DriveControllerFactory();
 		Camera cam = null;
