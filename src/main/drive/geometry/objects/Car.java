@@ -4,16 +4,16 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import drive.domain.car.CarMovement;
-import drive.domain.car.CarMovement.Move;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import com.jwm.j3dfw.geometry.Geometry;
 import com.jwm.j3dfw.geometry.Rotation;
 import com.jwm.j3dfw.geometry.Rotation.RotationDirection;
 import com.jwm.j3dfw.geometry.Transition.TransitionType;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import drive.domain.car.CarMovement;
+import drive.domain.car.CarMovement.Move;
 
 public class Car extends Geometry {
 

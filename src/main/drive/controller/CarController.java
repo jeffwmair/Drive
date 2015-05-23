@@ -1,10 +1,10 @@
 package drive.controller;
 
+import com.jwm.j3dfw.controller.Controller;
+import com.jwm.j3dfw.production.Camera;
+
 import drive.domain.car.CarMovement.Move;
 import drive.geometry.objects.Car;
-import drive.geometry.objects.Car;
-import com.jwm.j3dfw.production.Camera;
-import com.jwm.j3dfw.controller.Controller;
 
 public class CarController extends Controller {
 	private Car c;

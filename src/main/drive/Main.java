@@ -1,27 +1,17 @@
 package drive;
 
-import java.awt.Frame;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import com.jwm.j3dfw.utils.MainFrame;
+import com.jwm.j3dfw.controller.ControllerFactory;
 import com.jwm.j3dfw.geometry.Geometry;
 import com.jwm.j3dfw.geometry.GeometryList;
-
-import javax.media.opengl.GLCapabilities;
-import javax.media.opengl.GLProfile;
-import javax.media.opengl.awt.GLCanvas;
-
-import com.jogamp.opengl.util.FPSAnimator;
+import com.jwm.j3dfw.production.Camera;
+import com.jwm.j3dfw.utils.MainFrame;
 
 import drive.controller.DriveControllerFactory;
 import drive.geometry.objects.Car;
 import drive.geometry.objects.DomainFactory;
-
-import com.jwm.j3dfw.production.Camera;
-import com.jwm.j3dfw.production.Scene;
-import com.jwm.j3dfw.controller.ControllerFactory;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class Main {
 

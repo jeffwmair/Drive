@@ -1,9 +1,6 @@
 package drive.geometry.objects;
 
 import com.jwm.j3dfw.geometry.Geometry;
-
-import org.omg.CORBA.PRIVATE_MEMBER;
-
 import com.jwm.j3dfw.geometry.Rotation;
 import com.jwm.j3dfw.geometry.Rotation.RotationDirection;
 

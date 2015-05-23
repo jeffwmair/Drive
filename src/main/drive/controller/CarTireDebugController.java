@@ -1,7 +1,7 @@
 package drive.controller;
 
-import drive.geometry.objects.CarTireDebug;
 import com.jwm.j3dfw.controller.Controller;
+
 import drive.geometry.objects.CarTireDebug;
 
 public class CarTireDebugController extends Controller {
