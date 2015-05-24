@@ -12,6 +12,8 @@ import com.jwm.j3dfw.geometry.Rotation;
 import com.jwm.j3dfw.geometry.Rotation.RotationDirection;
 import com.jwm.j3dfw.geometry.Transition.TransitionType;
 
+import com.jwm.j3dfw.production.Camera;
+
 import drive.domain.car.CarMovement;
 import drive.domain.car.CarMovement.Move;
 
@@ -71,6 +73,11 @@ public class Car extends Geometry {
 		putWheelsOnCar();
 		movement = Move.COASTING;
 		carMovement = new CarMovement(this);
+		initCamera();
+		Camera cam = getCamera();
+		cam.toggleAutoTrack();
+		cam.toggleAutoRotate();
+
 	}
 	public void setSpeed(double speedKmph) {
 		this.speed = speedKmph;
