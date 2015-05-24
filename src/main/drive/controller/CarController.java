@@ -39,18 +39,4 @@ public class CarController extends Controller {
 	public void setMousePosition(double xPos, double percent) {
 		c.setFrontWheelAngle(percent);
 	}
-	public void mouseWheelMoved(int wheelRotation) {
-		Camera cam = c.getCamera();
-		cam.setZoom(wheelRotation);
-	}
-	public void cmdMouseWheelMoved(int wheelMoved) {
-		Camera cam = c.getCamera();
-		double angleChange = wheelMoved;
-		cam.incrementAngle(angleChange);
-	}
-	public void shiftMouseWheelMoved(int wheelMoved) {
-		Camera cam = c.getCamera();
-		double angleChange = wheelMoved;
-		cam.incrementVerticalAngle(angleChange);
-	}
 }
