@@ -7,7 +7,7 @@ import com.jwm.j3dfw.controller.ControllerFactory;
 import com.jwm.j3dfw.geometry.Geometry;
 import com.jwm.j3dfw.geometry.GeometryList;
 import com.jwm.j3dfw.production.Camera;
-import com.jwm.j3dfw.utils.MainFrame;
+import com.jwm.j3dfw.util.MainFrame;
 
 import drive.controller.DriveControllerFactory;
 import drive.geometry.objects.Car;
