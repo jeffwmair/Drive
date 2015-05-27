@@ -3,8 +3,8 @@ package drive.domain.car;
 import drive.domain.interfaces.Engine;
 import drive.domain.interfaces.SystemClock;
 import drive.domain.interfaces.Transmission;
+import drive.domain.modelling.Curve;
 import drive.domain.modelling.Curve.CurveDirection;
-import drive.domain.modelling.*;
 
 public class EngineImpl implements Engine {
 

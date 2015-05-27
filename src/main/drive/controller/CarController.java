@@ -1,8 +1,10 @@
 package drive.controller;
 
+import com.jwm.j3dfw.controller.Controller;
+import com.jwm.j3dfw.production.Camera;
+
 import drive.domain.car.CarMovement.Move;
 import drive.geometry.objects.Car;
-import drive.production.Camera;
 
 public class CarController extends Controller {
 	private Car c;
@@ -36,19 +38,5 @@ public class CarController extends Controller {
 	}
 	public void setMousePosition(double xPos, double percent) {
 		c.setFrontWheelAngle(percent);
-	}
-	public void mouseWheelMoved(int wheelRotation) {
-		Camera cam = c.getCamera();
-		cam.setZoom(wheelRotation);
-	}
-	public void cmdMouseWheelMoved(int wheelMoved) {
-		Camera cam = c.getCamera();
-		double angleChange = wheelMoved;
-		cam.incrementAngle(angleChange);
-	}
-	public void shiftMouseWheelMoved(int wheelMoved) {
-		Camera cam = c.getCamera();
-		double angleChange = wheelMoved;
-		cam.incrementVerticalAngle(angleChange);
 	}
 }

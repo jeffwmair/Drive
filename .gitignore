@@ -1,11 +1,9 @@
 *.swp
+target/
+logs/
+# IDE junk
+*.iml
 .idea/
 .project
 .settings/
 .classpath
-Drive.iml
-target
-cutlass.blend1
-cutlass.blend2
-cutlass.blend3
-cutlass.blend4

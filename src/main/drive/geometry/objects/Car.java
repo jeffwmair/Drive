@@ -4,14 +4,23 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import com.jwm.j3dfw.geometry.Geometry;
+import com.jwm.j3dfw.geometry.Rotation;
+import com.jwm.j3dfw.geometry.Rotation.RotationDirection;
+import com.jwm.j3dfw.geometry.Transition.TransitionType;
+
+import com.jwm.j3dfw.production.Camera;
+
 import drive.domain.car.CarMovement;
 import drive.domain.car.CarMovement.Move;
-import drive.geometry.Geometry;
-import drive.geometry.Rotation;
-import drive.geometry.Rotation.RotationDirection;
-import drive.geometry.Transition.TransitionType;
 
 public class Car extends Geometry {
+
+	private static Logger log = LogManager.getLogger(Car.class);
+
 	public double SPEED_TO_GEO_SPACE_FRAME = 0.005; // verified Nov 17 2014
 	public static final double FRONT_WHEEL_MAX_TURN_ANGLE = 35.0;
 	final float TIRE_FRONT_TRANSLATE = -2.85f;
@@ -43,6 +52,11 @@ public class Car extends Geometry {
 
 	public Car() {
 		super();
+
+		if (log.isDebugEnabled()) {
+			log.debug("New car");
+		}
+
 		frame = new CarFrame();
 		children.add(frame);
 		CarBody body = new CarBody();
@@ -59,6 +73,11 @@ public class Car extends Geometry {
 		putWheelsOnCar();
 		movement = Move.COASTING;
 		carMovement = new CarMovement(this);
+		initCamera();
+		Camera cam = getCamera();
+		cam.toggleAutoTrack();
+		cam.toggleAutoRotate();
+
 	}
 	public void setSpeed(double speedKmph) {
 		this.speed = speedKmph;

@@ -1,6 +1,6 @@
 package drive.domain.modelling;
 
-import drive.domain.interfaces.*;
+import drive.domain.interfaces.SystemClock;
 
 public class SystemClockStub implements SystemClock {
 

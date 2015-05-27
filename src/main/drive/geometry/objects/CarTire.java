@@ -1,11 +1,8 @@
 package drive.geometry.objects;
 
-import drive.geometry.Geometry;
-
-import org.omg.CORBA.PRIVATE_MEMBER;
-
-import drive.geometry.Rotation;
-import drive.geometry.Rotation.RotationDirection;
+import com.jwm.j3dfw.geometry.Geometry;
+import com.jwm.j3dfw.geometry.Rotation;
+import com.jwm.j3dfw.geometry.Rotation.RotationDirection;
 
 public class CarTire extends Geometry {
 	private double spinSpeedInKmph;

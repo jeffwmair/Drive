@@ -1,6 +1,6 @@
 package drive.geometry.objects;
 
-import drive.geometry.Geometry;
+import com.jwm.j3dfw.geometry.Geometry;
 
 public class CarRoof extends Geometry {
 	public CarRoof() {

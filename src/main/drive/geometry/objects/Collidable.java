@@ -2,7 +2,7 @@ package drive.geometry.objects;
 
 import java.util.List;
 
-import drive.geometry.Vertex;
+import com.jwm.j3dfw.geometry.Vertex;
 
 public abstract class Collidable {
 	public abstract boolean isColliding(Collidable other);
