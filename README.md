@@ -1,5 +1,6 @@
 # Drive
 3D Driving Game/Simulation in Java
+*Uses [J3DFW](https://github.com/jeffwmair/j3dfw)!!*
 ## Getting Going
 ```shell
 # clone from github
