@@ -1,4 +1,4 @@
-package drive.domain.car;
+package com.jwm.drive.domain.car;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import drive.domain.interfaces.TransmissionGear;
+import com.jwm.drive.domain.interfaces.TransmissionGear;
 
 public class TransmissionTest {
 

@@ -1,4 +1,5 @@
 *.swp
+out/
 target/
 logs/
 # IDE junk

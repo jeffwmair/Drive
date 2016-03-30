@@ -1,14 +1,14 @@
-package drive.domain.car;
+package com.jwm.drive.domain.car;
 
 import junit.framework.Assert;
 
 import org.junit.Test;
 
-import drive.domain.interfaces.Engine;
-import drive.domain.interfaces.Engine.PedalPress;
-import drive.domain.interfaces.Transmission;
-import drive.domain.modelling.Curve;
-import drive.domain.modelling.SystemClockStub;
+import com.jwm.drive.domain.interfaces.Engine;
+import com.jwm.drive.domain.interfaces.Engine.PedalPress;
+import com.jwm.drive.domain.interfaces.Transmission;
+import com.jwm.drive.domain.modelling.Curve;
+import com.jwm.drive.domain.modelling.SystemClockStub;
 
 public class EngineTest {
 

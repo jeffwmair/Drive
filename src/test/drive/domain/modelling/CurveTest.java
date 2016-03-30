@@ -1,10 +1,10 @@
-package drive.domain.modelling;
+package com.jwm.drive.domain.modelling;
 
 import junit.framework.Assert;
 
 import org.junit.Test;
 
-import drive.domain.modelling.Curve.CurveDirection;
+import com.jwm.drive.domain.modelling.Curve.CurveDirection;
 
 public class CurveTest {
 	
