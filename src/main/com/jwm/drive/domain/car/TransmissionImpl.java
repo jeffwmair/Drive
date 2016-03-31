@@ -1,9 +1,9 @@
 package com.jwm.drive.domain.car;
 
-import java.util.List;
-
 import com.jwm.drive.domain.interfaces.Transmission;
 import com.jwm.drive.domain.interfaces.TransmissionGear;
+
+import java.util.List;
 
 public class TransmissionImpl implements Transmission {
 

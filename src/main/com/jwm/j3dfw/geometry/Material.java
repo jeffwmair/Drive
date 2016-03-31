@@ -1,8 +1,8 @@
 package com.jwm.j3dfw.geometry;
 
-import java.nio.FloatBuffer;
-
 import com.jogamp.common.nio.Buffers;
+
+import java.nio.FloatBuffer;
 
 /**
  * A material contains colour components; determines how a Geometry looks

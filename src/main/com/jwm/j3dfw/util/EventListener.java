@@ -1,20 +1,13 @@
 package com.jwm.j3dfw.util;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import java.awt.event.MouseWheelEvent;
-import java.awt.event.MouseWheelListener;
-
-import javax.media.opengl.awt.GLCanvas;
-
 import com.jwm.j3dfw.controller.Controller;
 import com.jwm.j3dfw.controller.ControllerFactory;
 import com.jwm.j3dfw.geometry.Geometry;
 import com.jwm.j3dfw.geometry.GeometryList;
 import com.jwm.j3dfw.production.Scene;
+
+import javax.media.opengl.awt.GLCanvas;
+import java.awt.event.*;
 
 public class EventListener implements MouseMotionListener, MouseWheelListener, MouseListener, KeyListener {
 

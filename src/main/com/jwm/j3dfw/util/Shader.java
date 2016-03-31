@@ -1,13 +1,12 @@
 package com.jwm.j3dfw.util;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
+import javax.media.opengl.GL2;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-
-import javax.media.opengl.GL2;
-
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 
 public class Shader {
 

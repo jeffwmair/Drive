@@ -1,19 +1,17 @@
 package com.jwm.j3dfw.util;
 
-import java.awt.Frame;
-
-import javax.media.opengl.GLCapabilities;
-import javax.media.opengl.GLProfile;
-import javax.media.opengl.awt.GLCanvas;
-
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
 import com.jogamp.opengl.util.FPSAnimator;
 import com.jwm.j3dfw.controller.ControllerFactory;
 import com.jwm.j3dfw.geometry.GeometryList;
 import com.jwm.j3dfw.production.Camera;
 import com.jwm.j3dfw.production.Scene;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
+import javax.media.opengl.GLCapabilities;
+import javax.media.opengl.GLProfile;
+import javax.media.opengl.awt.GLCanvas;
+import java.awt.*;
 
 /**
  * Main GUI frame.

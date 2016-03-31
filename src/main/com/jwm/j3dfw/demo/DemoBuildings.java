@@ -1,22 +1,18 @@
 package com.jwm.j3dfw.demo;
 
-import java.util.Random;
-
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
 import com.jwm.j3dfw.controller.ControllerFactory;
 import com.jwm.j3dfw.controller.ControllerFactoryDefaultImpl;
 import com.jwm.j3dfw.demo.geometry.RotatingPlane;
-import com.jwm.j3dfw.geometry.Geometry;
-import com.jwm.j3dfw.geometry.Vertex;
 import com.jwm.j3dfw.geometry.GeometryList;
 import com.jwm.j3dfw.geometry.Rotation;
+import com.jwm.j3dfw.geometry.Vertex;
 import com.jwm.j3dfw.geometry.shapes.Cube;
-import com.jwm.j3dfw.production.Camera;
 import com.jwm.j3dfw.production.DefaultCamera;
-import com.jwm.j3dfw.production.TargetCamera;
 import com.jwm.j3dfw.util.MainFrame;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
+import java.util.Random;
 
 public class DemoBuildings {
 	

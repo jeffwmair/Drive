@@ -1,10 +1,9 @@
 package com.jwm.j3dfw.controller;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
 import com.jwm.j3dfw.geometry.Geometry;
 import com.jwm.j3dfw.production.Camera;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 public class Controller {
 

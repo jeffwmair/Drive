@@ -1,18 +1,18 @@
 package com.jwm.drive.geometry.objects;
 
+import com.jwm.drive.domain.car.CarMovement;
+import com.jwm.drive.domain.car.CarMovement.Move;
 import com.jwm.j3dfw.geometry.Geometry;
 import com.jwm.j3dfw.geometry.Rotation;
 import com.jwm.j3dfw.geometry.Rotation.RotationDirection;
-import com.jwm.j3dfw.geometry.Transition.TransitionType;
-import com.jwm.j3dfw.production.TargetCamera;
-import com.jwm.drive.domain.car.CarMovement;
-import com.jwm.drive.domain.car.CarMovement.Move;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+
+// todo: see above making Car package-private; just use public factories
 
 public class Car extends Geometry {
 
@@ -30,7 +30,6 @@ public class Car extends Geometry {
 	private CarTire tireRearRight;
 	private List<CarTire> allTires;
 	private List<CarTire> frontTires;
-	private boolean hoodIsOpen = false;
 	private Move movement;
 	private CarMovement carMovement;
 	private double speed;
@@ -153,21 +152,17 @@ public class Car extends Geometry {
 		getRotation(RotationDirection.overhead).setAngle(angle);
 	}
 	public void toggleHoodOpenClose() {
-		if (hoodIsOpen) {
+		if (hood.isOpen()) {
 			closeHood();
 		} else {
 			openHood();
 		}
 	}
 	private void openHood() {
-		int hoodOpenSpeed = 100;
-		hood.transitionRotation(0, 50, RotationDirection.endToEnd, hoodOpenSpeed, TransitionType.EASE_IN_OUT_SIN);
-		hoodIsOpen = true;
+		hood.open();
 	}
 	private void closeHood() {
-		int hoodCloseSpeed = 150;
-		hood.transitionRotation(50, 0, RotationDirection.endToEnd, hoodCloseSpeed, TransitionType.EASE_IN_OUT_SIN);
-		hoodIsOpen = false;
+		hood.close();
 	}
 	protected void applyLogic() {
 

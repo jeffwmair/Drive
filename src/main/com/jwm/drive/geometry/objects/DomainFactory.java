@@ -1,11 +1,11 @@
 package com.jwm.drive.geometry.objects;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.jwm.j3dfw.geometry.Geometry;
 import com.jwm.j3dfw.geometry.GeometryList;
 import com.jwm.j3dfw.geometry.shapes.Plane;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DomainFactory {
 	public static List<Geometry> getSpeedCalibrationRoadAndCar() {

@@ -1,17 +1,16 @@
 package com.jwm.j3dfw.production;
 
+import com.jwm.j3dfw.geometry.Geometry;
+import com.jwm.j3dfw.geometry.GeometryList;
+import com.jwm.j3dfw.util.Shader;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import javax.media.opengl.GL;
 import javax.media.opengl.GL2;
 import javax.media.opengl.GLAutoDrawable;
 import javax.media.opengl.GLEventListener;
 import javax.media.opengl.glu.GLU;
-
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
-import com.jwm.j3dfw.geometry.Geometry;
-import com.jwm.j3dfw.geometry.GeometryList;
-import com.jwm.j3dfw.util.Shader;
 
 public class Scene implements GLEventListener {
 	private static Logger log = LogManager.getLogger(Scene.class);

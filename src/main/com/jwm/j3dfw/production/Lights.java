@@ -1,13 +1,12 @@
 package com.jwm.j3dfw.production;
 
-import java.nio.FloatBuffer;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.GL2ES1;
 import javax.media.opengl.fixedfunc.GLLightingFunc;
-
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import java.nio.FloatBuffer;
 
 public class Lights {
 	private static Logger log = LogManager.getLogger(Lights.class);

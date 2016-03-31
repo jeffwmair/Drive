@@ -94,7 +94,7 @@ public class CarMovement {
 
 	private void setBodyRoll(double speed, double turnAngle) {
 		int direction = (turnAngle > 0) ? 1 : -1;
-		double fudgeFactor = 0.01;
+		double fudgeFactor = 0.005;
 		double bodyRollAngle = speed * turnAngle * fudgeFactor;
 		if (Math.abs(bodyRollAngle) > car.MAX_BODY_ROLL_ANGLE) {
 			bodyRollAngle = direction * car.MAX_BODY_ROLL_ANGLE;

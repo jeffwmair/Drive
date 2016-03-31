@@ -1,19 +1,16 @@
 package com.jwm.j3dfw.geometry;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.jwm.j3dfw.geometry.Transition.TransitionType;
+import com.jwm.j3dfw.production.TargetCamera;
+import com.jwm.j3dfw.util.FileLoader;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import javax.media.opengl.GL;
 import javax.media.opengl.GL2;
 import javax.media.opengl.glu.GLU;
-
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
-import com.jwm.j3dfw.geometry.Transition.TransitionType;
-import com.jwm.j3dfw.production.TargetCamera;
-import com.jwm.j3dfw.production.Camera;
-import com.jwm.j3dfw.util.FileLoader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Geometry {
 
