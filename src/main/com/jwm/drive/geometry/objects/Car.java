@@ -69,9 +69,10 @@ public class Car extends Geometry {
 		body.addChild(new CarWheelWells());
 		putWheelsOnCar();
 		movement = Move.COASTING;
+
+		// todo: passing 'this' into another constructor from this constructor is not a good practice.
 		carMovement = new CarMovement(this);
 		initCamera();
-		TargetCamera cam = getCamera();
 	}
 	public void setSpeed(double speedKmph) {
 		this.speed = speedKmph;
@@ -169,8 +170,10 @@ public class Car extends Geometry {
 		hoodIsOpen = false;
 	}
 	protected void applyLogic() {
-		carMovement.process(movement);
 
+		// todo: this collaboration with carMovement from inside Car seems a little akward.
+
+		carMovement.process(movement);
 		double overheadAngle = carMovement.getCarAngle();
 		setOverheadRotationAngle(overheadAngle);
 		speed = carMovement.getCarSpeed();

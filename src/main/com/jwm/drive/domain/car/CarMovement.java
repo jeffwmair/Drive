@@ -10,8 +10,6 @@ public class CarMovement {
 
 	private static int moveCounter;
 
-	// public static double RotateFactor = 1;
-
 	public enum Move {
 		COASTING, ACCELERATING, DECELERATING, STEADY
 	}
@@ -79,7 +77,7 @@ public class CarMovement {
 			newCarAngle = 360.0 - newCarAngle;
 		}
 
-		// setBodyRoll(currentSpeed, wheelTurnAngle);
+		setBodyRoll(currentSpeed, wheelTurnAngle);
 
 		double xMovement = -speedInGeometrySpace * Math.sin(Math.toRadians(newCarAngle));
 		double yMovement = 0; // car doesn't go up and down (yet!)
@@ -94,13 +92,10 @@ public class CarMovement {
 		}
 	}
 
-	private void setPosition(double speedGeometrySpace, double angle) {
-
-	}
-
 	private void setBodyRoll(double speed, double turnAngle) {
 		int direction = (turnAngle > 0) ? 1 : -1;
-		double bodyRollAngle = speed * turnAngle * 0.5;
+		double fudgeFactor = 0.01;
+		double bodyRollAngle = speed * turnAngle * fudgeFactor;
 		if (Math.abs(bodyRollAngle) > car.MAX_BODY_ROLL_ANGLE) {
 			bodyRollAngle = direction * car.MAX_BODY_ROLL_ANGLE;
 		}

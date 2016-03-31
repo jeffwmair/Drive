@@ -11,6 +11,8 @@ import com.jogamp.common.nio.Buffers;
  *
  */
 public class Material {
+
+	// todo: replace with getters
 	public FloatBuffer ambient;
 	public FloatBuffer diffuse;
 	public FloatBuffer specular;
@@ -28,18 +30,5 @@ public class Material {
 		diffSize = diff.length;
 		specSize = spec.length;
 		shinySize = shiny.length;
-	}
-
-	public int getAmbientSize() {
-		return ambSize;
-	}
-	public int getDiffuseSize() {
-		return diffSize;
-	}
-	public int getSpecularSize() {
-		return specSize;
-	}
-	public int getShinySize() {
-		return shinySize;
 	}
 }
