@@ -54,11 +54,15 @@ public class DemoBuildings {
 		DefaultCamera cam = new DefaultCamera();
 		Vertex camPos = cam.getPosition();
 		Vertex camTarget = cam.getTarget();
-		camTarget.y += 20;
-		camPos.y = 20;
+		camTarget.setY(camTarget.getY()+20);
+		camPos.setY(20);
 
 		ControllerFactory cf = new ControllerFactoryDefaultImpl();
-		MainFrame.startMainFrame(parts, cf, cam);
+
+		int targetFps = 60;
+		int frameWidth = 800;
+		int frameHeight = 800;
+		MainFrame.startMainFrame(parts, cf, cam, targetFps, frameWidth, frameHeight);
 	}
 
 	private static double getRandom(double min, double max, Random r) {

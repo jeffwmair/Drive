@@ -33,6 +33,10 @@ public class Main {
 			throw new RuntimeException("Camera not found!");
 		}
 
-		MainFrame.startMainFrame(parts, cf, cam);
+		int targetFps = 60;
+		int frameWidth = 800;
+		int frameHeight = 800;
+
+		MainFrame.startMainFrame(parts, cf, cam, targetFps, frameWidth, frameHeight);
 	}
 }

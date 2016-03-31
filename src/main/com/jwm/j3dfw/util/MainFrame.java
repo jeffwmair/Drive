@@ -30,15 +30,15 @@ public class MainFrame {
 	 * @param cam
      * @return
      */
-	public static synchronized void startMainFrame(GeometryList geometryList, ControllerFactory controllerFactory, Camera cam) {
+	public static synchronized void startMainFrame(GeometryList geometryList, ControllerFactory controllerFactory, Camera cam, int targetFps, int frameWidth, int frameHeight) {
 		if (instance != null) {
 			return;
 		}
 
-		instance = new MainFrame(geometryList, controllerFactory, cam);
+		instance = new MainFrame(geometryList, controllerFactory, cam, targetFps, frameWidth, frameHeight);
 	}
 
-	MainFrame(GeometryList parts, ControllerFactory controllerFactory, Camera cam) {
+	MainFrame(GeometryList parts, ControllerFactory controllerFactory, Camera cam, int targetFps, int frameWidth, int frameHeight) {
 		log.info("New MainFrame");
 		GLProfile glp = GLProfile.getDefault();
 		GLCapabilities caps = new GLCapabilities(glp);
@@ -53,11 +53,11 @@ public class MainFrame {
 		canvas.addKeyListener(listener);
 		canvas.addGLEventListener(scene);
 
-		FPSAnimator animator = new FPSAnimator(canvas, 60);
+		FPSAnimator animator = new FPSAnimator(canvas, targetFps);
 		animator.start();
 
 		Frame frame = new Frame();
-		frame.setSize(800, 800);
+		frame.setSize(frameWidth, frameHeight);
 		frame.add(canvas);
 		frame.setVisible(true);
 	}

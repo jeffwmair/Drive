@@ -33,7 +33,7 @@ public class TargetCamera extends Camera {
 		if (log.isDebugEnabled()) {
 			log.debug("camera_position:" + camera_position + ", camera_target:" + camera_target + ", verticalDistance:"+verticalDistance);
 		}
-		glu.gluLookAt(camera_position.x, camera_position.y + verticalDistance, camera_position.z, camera_target.x, camera_target.y, camera_target.z, 0, 1, 0);
+		glu.gluLookAt(camera_position.getX(), camera_position.getY() + verticalDistance, camera_position.getZ(), camera_target.getX(), camera_target.getY(), camera_target.getZ(), 0, 1, 0);
 	}
 	public void setTargetGeometry(Geometry target) {
 		this.targetItem = target;
