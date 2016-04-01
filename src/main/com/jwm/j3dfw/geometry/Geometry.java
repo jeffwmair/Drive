@@ -34,6 +34,11 @@ public class Geometry {
 	protected List<GeometryListener> listeners;
 
 	public Geometry() {
+		// todo: come up with something better
+		this(null, null);
+	}
+
+	public Geometry(String meshFilePrefix, String materialFilePrefix) {
 		if (log.isDebugEnabled()) {
 			log.debug("new Geometry:" + this);
 		}
@@ -60,6 +65,11 @@ public class Geometry {
 		transformations.add(rotationLeftAndRight);
 		transformations.add(overallScale);
 		offsetFromOrigin = new Vertex(0, 0, 0);
+
+		// todo: i don't like this
+		if (meshFilePrefix != null && materialFilePrefix != null) {
+			loadRootPart(meshFilePrefix, materialFilePrefix);
+		}
 	}
 	public void registerInfoListener(GeometryListener listener) {
 		if (log.isDebugEnabled()) {
@@ -236,7 +246,7 @@ public class Geometry {
 		gl2.glMaterialfv(GL.GL_FRONT, GL2.GL_DIFFUSE, material.diffuse);
 		gl2.glMaterialfv(GL.GL_FRONT, GL2.GL_SHININESS, material.shinyness);
 	}
-	public void loadRootPart(String meshFilePrefix, String materialFilePrefix) {
+	private void loadRootPart(String meshFilePrefix, String materialFilePrefix) {
 		try {
 			mesh = FileLoader.loadMesh(meshFilePrefix + ".obj");
 			material = FileLoader.loadMaterial(materialFilePrefix + ".mtl", true);

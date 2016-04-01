@@ -46,13 +46,5 @@ public class DomainFactory {
 		geo.add(c);
 		return geo;
 	}
-	public static List<Geometry> getSingleTire() {
-		List<Geometry> geo = new ArrayList<Geometry>();
-		Road r = new Road();
-		geo.add(r);
-		CarTire t = new CarTireDebug();
-		geo.add(t);
-		return geo;
-	}
 
 }

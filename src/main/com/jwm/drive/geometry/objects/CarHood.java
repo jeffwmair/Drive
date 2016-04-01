@@ -9,8 +9,7 @@ public class CarHood extends Geometry {
 	private boolean isOpen;
 
 	public CarHood() {
-		super();
-		loadRootPart("hood", "paint_white");
+		super("hood", "paint_white");
 	}
 
 	void open() {

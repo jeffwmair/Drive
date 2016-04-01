@@ -32,9 +32,9 @@ public class GeometryFactoryCarImpl implements GeometryFactory {
 		body.addChild(new CarRoof());
 		hood = new CarHood();
 		body.addChild(hood);
-//		body.addChild(new CarDoors());
+//		body.addChild(new Geometry("door", "paint"));
         body.addChild(new TailLights());
-//		body.addChild(new CarTrunk());
+//		body.addChild(new Geometry("trunk", "paint"));
 		body.addChild(new CarRearWindow());
 		body.addChild(new CarChrome());
 		body.addChild(new CarWheelWells());

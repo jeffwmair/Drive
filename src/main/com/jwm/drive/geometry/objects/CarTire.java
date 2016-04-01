@@ -10,8 +10,7 @@ public class CarTire extends Geometry {
 	private Rotation tireSpinRotation, tireTurnAngle;
 
 	public CarTire() {
-		super();
-		loadRootPart("tire", "tire");
+		super("tire", "tire");
 		setOffsetFromOrigin(0, 0, 0);
 		tireTurnAngle = getRotation(RotationDirection.overhead);
 		tireTurnAngle.setAngle(0);
@@ -23,7 +22,7 @@ public class CarTire extends Geometry {
 	}
 	private void addMarkers() {
 		for (int i = 0; i < 36; i++) {
-			Marker m = new Marker();
+			Geometry m = new Geometry("squaremarker", "squaremarker");
 			m.getPostTranslateRotation().setValues(20 * i, 1, 0, 0);
 			double xTrans = -0.679;
 			if (i >= 18) {

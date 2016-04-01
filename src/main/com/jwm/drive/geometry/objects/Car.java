@@ -23,7 +23,7 @@ public class Car extends Geometry {
 	final float TIRE_FRONT_TRANSLATE = -2.85f;
 	final float TIRE_HORIZONTAL_TRANSLATE = 0.6f;
 	private CarHood hood = null;
-	private CarFrame frame = null;
+	private Geometry frame = null;
 	private CarTire tireFrontLeft;
 	private CarTire tireFrontRight;
 	private CarTire tireRearLeft;
@@ -53,19 +53,19 @@ public class Car extends Geometry {
 			log.debug("New car");
 		}
 
-		frame = new CarFrame();
+		frame = new Geometry("frame", "frame");
 		children.add(frame);
-		CarBody body = new CarBody();
+		Geometry body = new Geometry("body", "paint_white");
 		frame.addChild(body);
-		body.addChild(new CarRoof());
+		body.addChild(new Geometry("vinylroof", "vinylroof"));
 		hood = new CarHood();
 		body.addChild(hood);
-//		body.addChild(new CarDoors());
-        body.addChild(new TailLights());
+//		body.addChild(new Geometry("door", "paint"));
+        body.addChild(new Geometry("red_plastic", "red_plastic"));
 //		body.addChild(new CarTrunk());
-		body.addChild(new CarRearWindow());
-		body.addChild(new CarChrome());
-		body.addChild(new CarWheelWells());
+		body.addChild(new Geometry("rearwindow", "rearwindow"));
+		body.addChild(new Geometry("chrome", "chrome"));
+		body.addChild(new Geometry("wheelwells", "wheelwells"));
 		putWheelsOnCar();
 		movement = Move.COASTING;
 
