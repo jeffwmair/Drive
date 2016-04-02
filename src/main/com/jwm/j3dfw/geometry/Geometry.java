@@ -20,7 +20,6 @@ public class Geometry {
 	private static Logger log = LogManager.getLogger(Geometry.class);
 
 	protected List<Geometry> children;
-	private final int ITEMS_PER_VERTEX = 3;
 	private Mesh mesh;
 	private Material material;
 	private List<Transformation> transformations;
@@ -230,6 +229,7 @@ public class Geometry {
 			return;
 		gl2.glEnableClientState(GL2.GL_NORMAL_ARRAY);
 		gl2.glEnableClientState(GL2.GL_VERTEX_ARRAY);
+		int ITEMS_PER_VERTEX = 3;
 		int vertexCount = mesh.getVertexComponentsSize() / ITEMS_PER_VERTEX;
 		gl2.glNormalPointer(GL.GL_FLOAT, 0, mesh.vertex_component_normals);
 		gl2.glVertexPointer(ITEMS_PER_VERTEX, GL.GL_FLOAT, 0, mesh.vertex_components);

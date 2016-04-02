@@ -6,7 +6,6 @@ import com.jwm.j3dfw.geometry.Rotation.RotationDirection;
 
 public class CarTire extends Geometry {
 	private double spinSpeedInKmph;
-	private final double FRONT_WHEEL_MAX_TURN_ANGLE = 35.0;
 	private Rotation tireSpinRotation, tireTurnAngle;
 
 	public CarTire() {
@@ -36,11 +35,12 @@ public class CarTire extends Geometry {
 		spinSpeedInKmph = kmph;
 	}
 	public void setWheelAngleInPct(double percent) {
+		double FRONT_WHEEL_MAX_TURN_ANGLE = 35.0;
 		double angle = FRONT_WHEEL_MAX_TURN_ANGLE * percent;
 		tireTurnAngle.setAngle(-angle);
 	}
-	private final double SPEED_CONVERSION = 0.65;
 	protected void applyLogic() {
+		double SPEED_CONVERSION = 0.65;
 		tireSpinRotation.increaseAngle(-spinSpeedInKmph*SPEED_CONVERSION);
 	}
 }

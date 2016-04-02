@@ -18,17 +18,10 @@ public class Material {
 	public FloatBuffer specular;
 	public FloatBuffer shinyness;
 
-	private int ambSize, diffSize, specSize, shinySize;
-
 	public Material(float[] amb, float[] diff, float[] spec, float[] shiny) {
 		ambient = Buffers.newDirectFloatBuffer(amb);
 		diffuse = Buffers.newDirectFloatBuffer(diff);
 		specular = Buffers.newDirectFloatBuffer(spec);
 		shinyness = Buffers.newDirectFloatBuffer(shiny);
-
-		ambSize = amb.length;
-		diffSize = diff.length;
-		specSize = spec.length;
-		shinySize = shiny.length;
 	}
 }

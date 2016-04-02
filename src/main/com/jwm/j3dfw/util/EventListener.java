@@ -6,7 +6,6 @@ import com.jwm.j3dfw.geometry.Geometry;
 import com.jwm.j3dfw.geometry.GeometryList;
 import com.jwm.j3dfw.production.Scene;
 
-import javax.media.opengl.awt.GLCanvas;
 import java.awt.event.*;
 
 class EventListener implements MouseMotionListener, MouseWheelListener, MouseListener, KeyListener {

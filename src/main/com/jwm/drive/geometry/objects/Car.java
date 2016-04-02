@@ -22,10 +22,6 @@ public class Car extends Geometry {
 	final float TIRE_HORIZONTAL_TRANSLATE = 0.6f;
 	private CarHood hood = null;
 	private Geometry frame = null;
-	private CarTire tireFrontLeft;
-	private CarTire tireFrontRight;
-	private CarTire tireRearLeft;
-	private CarTire tireRearRight;
 	private List<CarTire> allTires;
 	private List<CarTire> frontTires;
 	private Move movement;
@@ -181,6 +177,11 @@ public class Car extends Geometry {
 		}
 	}
 	private void putWheelsOnCar() {
+
+		CarTire tireFrontLeft;
+		CarTire tireFrontRight;
+		CarTire tireRearLeft;
+		CarTire tireRearRight;
 
 		tireFrontLeft = new CarTire();
 		tireFrontRight = new CarTire();

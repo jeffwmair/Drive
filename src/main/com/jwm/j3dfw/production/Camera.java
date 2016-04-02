@@ -9,7 +9,6 @@ import javax.media.opengl.glu.GLU;
 
 public abstract class Camera {
 	private static Logger log = LogManager.getLogger(Camera.class);
-	private final double CAM_MAX_VIEW_DISTANCE = 50000.0;
 	private double viewportWidth, viewportHeight;
 	protected Vertex camera_position, camera_target;
 
@@ -57,6 +56,7 @@ public abstract class Camera {
 		gl.glLoadIdentity();
 		// Perspective.
 		float widthHeightRatio = (float) viewportWidth / (float) viewportHeight;
+		double CAM_MAX_VIEW_DISTANCE = 50000.0;
 		glu.gluPerspective(25, widthHeightRatio, 1, CAM_MAX_VIEW_DISTANCE);
 		look(glu);
 		// Change back to model view matrix.

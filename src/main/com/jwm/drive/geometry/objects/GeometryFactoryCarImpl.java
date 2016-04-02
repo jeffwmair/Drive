@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Responsible for building a car Geometry hierarchy
  * Created by Jeff on 2016-03-30.
  */
 public class GeometryFactoryCarImpl implements GeometryFactory {
