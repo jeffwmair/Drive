@@ -1,7 +1,5 @@
 package com.jwm.drive.geometry.objects;
 
-import com.jwm.drive.domain.car.CarMovement;
-import com.jwm.drive.domain.car.CarMovement.Move;
 import com.jwm.j3dfw.geometry.Geometry;
 import com.jwm.j3dfw.geometry.Rotation;
 import com.jwm.j3dfw.geometry.Rotation.RotationDirection;
@@ -31,7 +29,6 @@ public class Car extends Geometry {
 	private List<CarTire> allTires;
 	private List<CarTire> frontTires;
 	private Move movement;
-	private CarMovement carMovement;
 	private double speed;
 	public final double MAX_SPEED = 150;
 	public final double ACCELERATION = 0.25;
@@ -69,8 +66,6 @@ public class Car extends Geometry {
 		putWheelsOnCar();
 		movement = Move.COASTING;
 
-		// todo: passing 'this' into another constructor from this constructor is not a good practice.
-		carMovement = new CarMovement(this);
 		initCamera();
 	}
 	public void setSpeed(double speedKmph) {
@@ -166,16 +161,14 @@ public class Car extends Geometry {
 	}
 	protected void applyLogic() {
 
-		// todo: this collaboration with carMovement from inside Car seems a little akward.
-
-		carMovement.process(movement);
-		double overheadAngle = carMovement.getCarAngle();
+		process(movement);
+		double overheadAngle = getCarAngle();
 		setOverheadRotationAngle(overheadAngle);
-		speed = carMovement.getCarSpeed();
+		speed = getCarSpeed();
 		setWheelSpeed(speed);
 
-		List<String> stats = new ArrayList<String>();
-		stats.add("Movement:" + carMovement.toString());
+		List<String> stats = new ArrayList<>();
+		stats.add("Movement:" + this.toString());
 		stats.add(getSpeed() + " km/h");
 		stats.add("Wheel angle:" + (int) getWheelAngle());
 		stats.add("Overhead angle: " + (int) overheadAngle);
@@ -216,5 +209,97 @@ public class Car extends Geometry {
 	}
 	public double getWheelAngle() {
 		return frontTires.get(0).getTurnAngle();
+	}
+
+		private static int moveCounter;
+
+	public enum Move {
+		COASTING, ACCELERATING, DECELERATING, STEADY
+	}
+
+	protected double carRotationAngle, currentSpeed;
+
+	public void process(Move type) {
+		adjustSpeed(type);
+		adjustPosition(type);
+	}
+	public double getCarAngle() {
+		return carRotationAngle;
+	}
+	public double getCarSpeed() {
+		return currentSpeed;
+	}
+
+	protected void adjustSpeed(Move type) {
+		switch (type) {
+		case ACCELERATING:
+			if (this.currentSpeed >= MAX_SPEED)
+				return;
+			currentSpeed = currentSpeed + ACCELERATION;
+			break;
+		case COASTING:
+			setForwardBackLeanAngle(0);
+			if (currentSpeed <= 0) {
+				currentSpeed = 0;
+				return;
+			}
+			currentSpeed = currentSpeed + COAST_DECELERATION;
+			break;
+		case DECELERATING:
+			if (this.currentSpeed <= 0)
+				return;
+			currentSpeed = currentSpeed + DECELERATION;
+			break;
+		case STEADY:
+			break;
+		}
+	}
+
+	private void adjustPosition(Move type) {
+
+		double speedInGeometrySpace = currentSpeed * SPEED_TO_GEO_SPACE_FRAME;
+		double wheelTurnAngle = getWheelAngle();
+		double attemptedTurnAmount = getCarTurnAngle();
+
+		/* sudden jumps in the wheel angle should slow the car down */
+		// turning the wheel slows the car down too
+		double wheelTurnSpeedAttenuation = 1;
+		if (currentSpeed > 15) {
+			double WHEEL_TURN_SPEED_ATTENUATION_FACTOR = 0.01;
+			wheelTurnSpeedAttenuation = 1 - Math.abs(WHEEL_TURN_SPEED_ATTENUATION_FACTOR * wheelTurnAngle
+					/ Car.FRONT_WHEEL_MAX_TURN_ANGLE);
+
+		}
+		double newCarAngle = carRotationAngle + attemptedTurnAmount;
+
+		/* this should help to keep things simple */
+		newCarAngle = newCarAngle % 360;
+		if (newCarAngle < 0) {
+			newCarAngle = 360.0 - newCarAngle;
+		}
+
+		setBodyRoll(currentSpeed, wheelTurnAngle);
+
+		double xMovement = -speedInGeometrySpace * Math.sin(Math.toRadians(newCarAngle));
+		double yMovement = 0; // car doesn't go up and down (yet!)
+		double zMovement = -speedInGeometrySpace * Math.cos(Math.toRadians(newCarAngle));
+		increaseTranslation(xMovement, yMovement, zMovement);
+
+		carRotationAngle = newCarAngle;
+		currentSpeed = currentSpeed * wheelTurnSpeedAttenuation;
+		moveCounter++;
+		if (moveCounter % 50 == 0) {
+			// System.out.println("Speed:" + currentSpeed);
+		}
+	}
+
+	private void setBodyRoll(double speed, double turnAngle) {
+		int direction = (turnAngle > 0) ? 1 : -1;
+		double fudgeFactor = 0.005;
+		double bodyRollAngle = speed * turnAngle * fudgeFactor;
+		if (Math.abs(bodyRollAngle) > MAX_BODY_ROLL_ANGLE) {
+			bodyRollAngle = direction * MAX_BODY_ROLL_ANGLE;
+		}
+		setBodyRollAngle(-bodyRollAngle);
 	}
 }

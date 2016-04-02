@@ -1,6 +1,5 @@
 package com.jwm.drive.controller;
 
-import com.jwm.drive.domain.car.CarMovement.Move;
 import com.jwm.drive.geometry.objects.Car;
 import com.jwm.j3dfw.controller.Controller;
 
@@ -12,16 +11,16 @@ public class CarController extends Controller {
 		this.c = c;
 	}
 	public void leftMouseDown() {
-		c.setMovement(Move.ACCELERATING);
+		c.setMovement(Car.Move.ACCELERATING);
 	}
 	public void rightMouseDown() {
-		c.setMovement(Move.DECELERATING);
+		c.setMovement(Car.Move.DECELERATING);
 	}
 	public void leftMouseUp() {
-		c.setMovement(Move.COASTING);
+		c.setMovement(Car.Move.COASTING);
 	}
 	public void rightMouseUp() {
-		c.setMovement(Move.COASTING);
+		c.setMovement(Car.Move.COASTING);
 	}
 	public void keyPress(int keyCode) {
 		if (keyCode == 49) {
