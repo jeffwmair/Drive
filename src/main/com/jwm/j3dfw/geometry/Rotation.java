@@ -61,7 +61,7 @@ public class Rotation extends Transformation {
 
 	public enum RotationDirection {
 		overhead, leftAndRight, endToEnd
-	};
+	}
 
 	public Rotation(double angle, RotationDirection dir) {
 		Vertex v = getVertexForRotationDir(dir);

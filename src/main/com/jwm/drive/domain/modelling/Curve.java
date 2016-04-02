@@ -2,7 +2,8 @@ package com.jwm.drive.domain.modelling;
 
 public class Curve {
 	
-	public enum CurveDirection { Up, Dn };
+	public enum CurveDirection { Up, Dn }
+
 	private double[] val;
 	private double domainMin, domainMax;
 

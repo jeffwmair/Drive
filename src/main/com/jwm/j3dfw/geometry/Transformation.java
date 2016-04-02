@@ -5,7 +5,7 @@ import javax.media.opengl.GL2;
 public abstract class Transformation {
 	public enum TransformationType {
 		scale, rotate, translate
-	};
+	}
 
 	protected TransformationType transType;
 

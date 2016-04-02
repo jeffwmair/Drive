@@ -17,7 +17,6 @@ public class Scene implements GLEventListener {
 	private GLU glu;
 	private GeometryList sceneProps;
 	private float viewportWidth;
-	protected double mouseXPositionRelativeToCenter;
 
 	public Scene(GeometryList sceneItems, Camera camera) {
 		log.info("New scene with camera:"+camera+", and sceneItems:" + sceneItems);

@@ -3,7 +3,7 @@ package com.jwm.j3dfw.geometry;
 public class Transition {
 	public enum TransitionType {
 		LINEAR, EASE_IN_OUT_SIN
-	};
+	}
 
 	private boolean inProgress;
 	private double[] steps;

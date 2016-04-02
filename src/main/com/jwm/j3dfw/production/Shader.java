@@ -32,11 +32,11 @@ class Shader {
 		}
 
 		String vsrc = readFromFile(vertexShaderInStream);
-		gl.glShaderSource(v, 1, new String[] { vsrc }, (int[]) null, 0);
+		gl.glShaderSource(v, 1, new String[] { vsrc }, null, 0);
 		gl.glCompileShader(v);
 
 		String fsrc = readFromFile(fragmentShaderInStream);
-		gl.glShaderSource(f, 1, new String[] { fsrc }, (int[]) null, 0);
+		gl.glShaderSource(f, 1, new String[] { fsrc }, null, 0);
 		gl.glCompileShader(f);
 
 		int shaderprogram = gl.glCreateProgram();

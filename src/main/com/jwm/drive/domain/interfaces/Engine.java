@@ -14,7 +14,7 @@ public interface Engine {
 		public double getValue() {
 			return value;
 		}
-	};
+	}
 
 	void update(PedalPress accelerator);
 	double getTorque();
