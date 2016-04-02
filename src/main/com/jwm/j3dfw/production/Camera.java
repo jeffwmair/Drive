@@ -19,7 +19,6 @@ public abstract class Camera {
 	protected double zoom_distance;
 	protected double h_angle;
 	protected double v_pct;
-	private GLU glu;
 
 	/**
 	 * Template method for specific camear implementations to implement
@@ -32,9 +31,6 @@ public abstract class Camera {
 		zoom_distance = 25;
 		h_angle = 90;
 		v_pct = 0.75;
-	}
-	public void setGlu(GLU glu) {
-		this.glu = glu;
 	}
 
 	/**

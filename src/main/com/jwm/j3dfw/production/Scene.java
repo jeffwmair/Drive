@@ -24,7 +24,6 @@ public class Scene implements GLEventListener {
 		sceneProps = sceneItems;
 		glu = new GLU();
 		this.camera = camera;
-		this.camera.setGlu(glu);
 	}
 
 	/**
