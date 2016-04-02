@@ -2,7 +2,6 @@ package com.jwm.j3dfw.production;
 
 import com.jwm.j3dfw.geometry.Geometry;
 import com.jwm.j3dfw.geometry.GeometryList;
-import com.jwm.j3dfw.util.Shader;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 

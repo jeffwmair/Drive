@@ -1,5 +1,6 @@
-package com.jwm.j3dfw.util;
+package com.jwm.j3dfw.production;
 
+import com.jwm.j3dfw.util.FileLoader;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -8,14 +9,14 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class Shader {
+class Shader {
 
 	private static Logger log = LogManager.getLogger(Shader.class);
 
 	/**
 	 * Setup vertex and fragment shaders
 	 */
-	public static void initShaders(GL2 gl, String vertexShaderResource, String fragmentShaderResource) {
+	static void initShaders(GL2 gl, String vertexShaderResource, String fragmentShaderResource) {
 		log.info("initShaders");
 
 		int v = gl.glCreateShader(GL2.GL_VERTEX_SHADER);
