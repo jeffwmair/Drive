@@ -36,7 +36,7 @@ public class MainFrame {
 		instance = new MainFrame(geometryList, controllerFactory, cam, targetFps, frameWidth, frameHeight);
 	}
 
-	MainFrame(GeometryList parts, ControllerFactory controllerFactory, Camera cam, int targetFps, int frameWidth, int frameHeight) {
+	private MainFrame(GeometryList parts, ControllerFactory controllerFactory, Camera cam, int targetFps, int frameWidth, int frameHeight) {
 		log.info("New MainFrame");
 		GLProfile glp = GLProfile.getDefault();
 		GLCapabilities caps = new GLCapabilities(glp);

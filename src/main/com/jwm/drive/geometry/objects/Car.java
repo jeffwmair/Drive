@@ -16,21 +16,21 @@ public class Car extends Geometry {
 
 	private static Logger log = LogManager.getLogger(Car.class);
 
-	public double SPEED_TO_GEO_SPACE_FRAME = 0.005; // verified Nov 17 2014
-	public static final double FRONT_WHEEL_MAX_TURN_ANGLE = 35.0;
-	final float TIRE_FRONT_TRANSLATE = -2.85f;
-	final float TIRE_HORIZONTAL_TRANSLATE = 0.6f;
+	private double SPEED_TO_GEO_SPACE_FRAME = 0.005; // verified Nov 17 2014
+	private static final double FRONT_WHEEL_MAX_TURN_ANGLE = 35.0;
+	private final float TIRE_FRONT_TRANSLATE = -2.85f;
+	private final float TIRE_HORIZONTAL_TRANSLATE = 0.6f;
 	private CarHood hood = null;
 	private Geometry frame = null;
 	private List<CarTire> allTires;
 	private List<CarTire> frontTires;
 	private Move movement;
 	private double speed;
-	public final double MAX_SPEED = 150;
-	public final double ACCELERATION = 0.25;
-	public final double DECELERATION = -1;
-	public final double COAST_DECELERATION = -0.1;
-	public final double MAX_BODY_ROLL_ANGLE = 3;
+	private final double MAX_SPEED = 150;
+	private final double ACCELERATION = 0.25;
+	private final double DECELERATION = -1;
+	private final double COAST_DECELERATION = -0.1;
+	private final double MAX_BODY_ROLL_ANGLE = 3;
 
 	/**
 	 * Issues: body roll - frame is rotation along the right side, not in the
@@ -67,11 +67,11 @@ public class Car extends Geometry {
 	public void setSpeed(double speedKmph) {
 		this.speed = speedKmph;
 	}
-	public String getSpeed() {
+	private String getSpeed() {
 		DecimalFormat format = new DecimalFormat("0");
 		return format.format(speed);
 	}
-	public double getMinTurnRadius() {
+	private double getMinTurnRadius() {
 		double normalMinRadius = 0.1; // is this 100m ?
 		double maxSpeedBeforeGripLoss = 20;
 		double minTurnRadius = 0;
@@ -94,7 +94,7 @@ public class Car extends Geometry {
 		double carTurnAngle = 90 - angleTravelledAlongCircle;
 		return carTurnAngle;
 	}
-	public double getCarTurnAngle() {
+	private double getCarTurnAngle() {
 		/*
 		 * if the wheel angle is less than what would cause us to bump into the
 		 * minimum turn radius, then we just set the new car angle using the
@@ -133,10 +133,10 @@ public class Car extends Geometry {
 			frontTire.setWheelAngleInPct(percent);
 		}
 	}
-	public void setBodyRollAngle(double angle) {
+	private void setBodyRollAngle(double angle) {
 		frame.setRotation(angle, RotationDirection.leftAndRight);
 	}
-	public void resetForwardBackLeanAngle() {
+	private void resetForwardBackLeanAngle() {
 		frame.setRotation(0, RotationDirection.endToEnd);
 	}
 	private void setOverheadRotationAngle(double angle) {
@@ -208,7 +208,7 @@ public class Car extends Geometry {
 		frontTires.add(tireFrontLeft);
 		frontTires.add(tireFrontRight);
 	}
-	public double getWheelAngle() {
+	private double getWheelAngle() {
 		return frontTires.get(0).getTurnAngle();
 	}
 
@@ -218,20 +218,21 @@ public class Car extends Geometry {
 		COASTING, ACCELERATING, DECELERATING, STEADY
 	}
 
-	protected double carRotationAngle, currentSpeed;
+	private double carRotationAngle;
+	private double currentSpeed;
 
-	public void process(Move type) {
+	private void process(Move type) {
 		adjustSpeed(type);
 		adjustPosition(type);
 	}
-	public double getCarAngle() {
+	private double getCarAngle() {
 		return carRotationAngle;
 	}
-	public double getCarSpeed() {
+	private double getCarSpeed() {
 		return currentSpeed;
 	}
 
-	protected void adjustSpeed(Move type) {
+	private void adjustSpeed(Move type) {
 		switch (type) {
 		case ACCELERATING:
 			if (this.currentSpeed >= MAX_SPEED)

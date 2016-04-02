@@ -8,7 +8,7 @@ import javax.media.opengl.glu.GLU;
 public class DefaultCamera extends Camera {
 	private static Logger log = LogManager.getLogger(DefaultCamera.class);
 
-	public DefaultCamera() {
+	private DefaultCamera() {
 		super();
 	}
 	protected void look(GLU glu) {

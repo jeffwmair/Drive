@@ -9,7 +9,7 @@ public class TransmissionGearImpl implements TransmissionGear {
 
     private double ratio;
     private double speed;
-    public TransmissionGearImpl(double gearRatio)
+    TransmissionGearImpl(double gearRatio)
     {
         ratio = gearRatio;
     }

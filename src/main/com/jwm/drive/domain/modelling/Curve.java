@@ -30,10 +30,10 @@ public class Curve {
 	 * 
 	 * @return
 	 */
-	public double getLast() {
+	private double getLast() {
 		return val[val.length - 1];
 	}
-	public double getMin() {
+	private double getMin() {
 		double min = Double.MAX_VALUE;
 		for (double aVal : val) {
 			if (aVal < min) {

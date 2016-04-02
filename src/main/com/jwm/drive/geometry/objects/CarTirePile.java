@@ -3,7 +3,7 @@ package com.jwm.drive.geometry.objects;
 import com.jwm.j3dfw.geometry.Geometry;
 import com.jwm.j3dfw.geometry.Rotation.RotationDirection;
 
-public class CarTirePile extends Geometry {
+class CarTirePile extends Geometry {
 
 	public CarTirePile() {
 		super();

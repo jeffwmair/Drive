@@ -13,7 +13,7 @@ import javax.media.opengl.glu.GLU;
 
 public class Scene implements GLEventListener {
 	private static Logger log = LogManager.getLogger(Scene.class);
-	public Camera camera;
+	private Camera camera;
 	private GLU glu;
 	private GeometryList sceneProps;
 	private float viewportWidth;

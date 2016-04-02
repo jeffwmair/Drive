@@ -27,7 +27,7 @@ public abstract class TransitionEasing {
 		return scaledSteps;
 	}
 	protected abstract double[] getTransitionAlgorithmSteps(int numSteps);
-	protected int getNumberOfStepsFromSpeed(int speedSelection) {
+	private int getNumberOfStepsFromSpeed(int speedSelection) {
 		int SPEED_REFERENCE = 5000;
 		return SPEED_REFERENCE / speedSelection;
 	}

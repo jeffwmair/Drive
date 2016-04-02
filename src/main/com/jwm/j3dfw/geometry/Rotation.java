@@ -68,7 +68,7 @@ public class Rotation extends Transformation {
 		setValues(angle, v.x, v.y, v.z);
 		this.transType = TransformationType.rotate;
 	}
-	public Rotation(double angle, double vecX, double vecY, double vecZ) {
+	private Rotation(double angle, double vecX, double vecY, double vecZ) {
 		setValues(angle, vecX, vecY, vecZ);
 		this.transType = TransformationType.rotate;
 	}

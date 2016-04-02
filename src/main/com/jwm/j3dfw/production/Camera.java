@@ -10,21 +10,22 @@ import javax.media.opengl.glu.GLU;
 public abstract class Camera {
 	private static Logger log = LogManager.getLogger(Camera.class);
 	private double viewportWidth, viewportHeight;
-	protected Vertex camera_position, camera_target;
+	Vertex camera_position;
+	Vertex camera_target;
 
 	/* 
 	 * GLU is the glut utility library which has camera helper functions 
 	 */
-	protected double zoom_distance;
-	protected double h_angle;
-	protected double v_pct;
+	double zoom_distance;
+	double h_angle;
+	double v_pct;
 
 	/**
 	 * Template method for specific camear implementations to implement
 	 */
 	protected abstract void look(GLU glu);
 
-	public Camera() {
+	Camera() {
 		camera_position = new Vertex(0, 0, 10);
 		camera_target = new Vertex(0, 0, 0);
 		zoom_distance = 25;

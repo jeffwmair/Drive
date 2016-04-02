@@ -4,7 +4,7 @@ import com.jwm.j3dfw.geometry.Geometry;
 import com.jwm.j3dfw.geometry.Rotation;
 import com.jwm.j3dfw.geometry.Transition;
 
-public class CarHood extends Geometry {
+class CarHood extends Geometry {
 
 	private boolean isOpen;
 

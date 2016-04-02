@@ -10,7 +10,7 @@ import java.nio.FloatBuffer;
  * @author Jeff
  *
  */
-public class Material {
+class Material {
 
 	// todo: replace with getters
 	public FloatBuffer ambient;

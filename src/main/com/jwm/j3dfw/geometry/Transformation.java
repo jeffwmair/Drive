@@ -7,7 +7,7 @@ public abstract class Transformation {
 		scale, rotate, translate
 	}
 
-	protected TransformationType transType;
+	TransformationType transType;
 
 	public abstract void transform(GL2 gl);
 	public TransformationType getType() {

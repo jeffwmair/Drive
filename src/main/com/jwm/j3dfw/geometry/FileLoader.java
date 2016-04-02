@@ -10,7 +10,7 @@ import java.util.Map;
 
 class FileLoader {
 
-	static Map<String, Material> loadedMaterials;
+	private static Map<String, Material> loadedMaterials;
 	private static Map<String, Mesh> loadedMeshes;
 	static {
 		loadedMaterials = new HashMap<>();

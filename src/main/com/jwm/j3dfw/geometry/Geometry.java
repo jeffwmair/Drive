@@ -28,8 +28,8 @@ public class Geometry {
 	private Transition rotationOverheadTransition, rotationLeftAndRightTransition, rotationEndOverEndTransition;
 	private Translation overallTranslation;
 	private Scaling overallScale;
-	protected TargetCamera cam;
-	protected List<GeometryListener> listeners;
+	private TargetCamera cam;
+	private List<GeometryListener> listeners;
 
 	public Geometry() {
 		// todo: come up with something better
@@ -84,7 +84,7 @@ public class Geometry {
 	public void setOverallTranslation(double x, double y, double z) {
 		overallTranslation.setValues(x, y, z);
 	}
-	public void increaseTranslation(double x, double y, double z) {
+	protected void increaseTranslation(double x, double y, double z) {
 		overallTranslation.updateByAmount(x, y, z);
 	}
 	public void setRotation(double angle, Rotation.RotationDirection dir) {
@@ -102,7 +102,7 @@ public class Geometry {
 				return rotationEndOverEndTransition;
 		}
 	}
-	public Rotation getRotation(Rotation.RotationDirection dir) {
+	protected Rotation getRotation(Rotation.RotationDirection dir) {
 		switch (dir) {
 			case endToEnd:
 				return rotationEndOverEnd;
@@ -114,11 +114,11 @@ public class Geometry {
 				return rotationEndOverEnd;
 		}
 	}
-	public Rotation getPostTranslateRotation() {
+	protected Rotation getPostTranslateRotation() {
 		return rotationPostTranslate;
 	}
-	public void transitionRotation(double startAngle, double endAngle, Rotation.RotationDirection dir,
-			int speedOutOf10, TransitionType transType) {
+	protected void transitionRotation(double startAngle, double endAngle, Rotation.RotationDirection dir,
+									  int speedOutOf10, TransitionType transType) {
 		Transition appropriateTransition = null;
 		try {
 			appropriateTransition = getRotationTransition(dir);

@@ -1,6 +1,6 @@
 package com.jwm.drive.domain.car;
 
-public class WheelDriveImpl {
+class WheelDriveImpl {
 
 	private double velocity, wheel_force, radius;
 

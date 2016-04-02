@@ -12,7 +12,7 @@ import java.nio.FloatBuffer;
  * @author Jeff
  * 
  */
-public class Mesh {
+class Mesh {
 	private static Logger log = LogManager.getLogger(Mesh.class);
 	public FloatBuffer vertex_components;
 	public FloatBuffer vertex_component_normals;

@@ -8,7 +8,7 @@ import javax.media.opengl.GL2ES1;
 import javax.media.opengl.fixedfunc.GLLightingFunc;
 import java.nio.FloatBuffer;
 
-public class Lights {
+class Lights {
 	private static Logger log = LogManager.getLogger(Lights.class);
 	private static float spotlightAngle;
 	private static FloatBuffer model_ambient_buff;
