@@ -6,7 +6,6 @@ import com.jwm.j3dfw.geometry.GeometryList;
 import com.jwm.j3dfw.geometry.Rotation;
 import com.jwm.j3dfw.geometry.Vertex;
 import com.jwm.j3dfw.geometry.shapes.Cube;
-import com.jwm.j3dfw.production.DefaultCamera;
 import com.jwm.j3dfw.production.TargetCamera;
 import com.jwm.j3dfw.util.MainFrame;
 import org.apache.log4j.LogManager;
