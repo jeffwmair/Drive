@@ -18,19 +18,12 @@ public class Car extends Geometry {
 
 	private double SPEED_TO_GEO_SPACE_FRAME = 0.005; // verified Nov 17 2014
 	private static final double FRONT_WHEEL_MAX_TURN_ANGLE = 35.0;
-	private final float TIRE_FRONT_TRANSLATE = -2.85f;
-	private final float TIRE_HORIZONTAL_TRANSLATE = 0.6f;
 	private CarHood hood = null;
 	private Geometry frame = null;
 	private List<CarTire> allTires;
 	private List<CarTire> frontTires;
 	private Move movement;
 	private double speed;
-	private final double MAX_SPEED = 150;
-	private final double ACCELERATION = 0.25;
-	private final double DECELERATION = -1;
-	private final double COAST_DECELERATION = -0.1;
-	private final double MAX_BODY_ROLL_ANGLE = 3;
 
 	/**
 	 * Issues: body roll - frame is rotation along the right side, not in the
@@ -188,6 +181,8 @@ public class Car extends Geometry {
 		tireRearLeft = new CarTire();
 		tireRearRight = new CarTire();
 
+		float TIRE_HORIZONTAL_TRANSLATE = 0.6f;
+		float TIRE_FRONT_TRANSLATE = -2.85f;
 		tireFrontLeft.setOverallTranslation(TIRE_HORIZONTAL_TRANSLATE, 0, TIRE_FRONT_TRANSLATE);
 		tireFrontRight.setOverallTranslation(-TIRE_HORIZONTAL_TRANSLATE, 0, TIRE_FRONT_TRANSLATE);
 		tireRearLeft.setOverallTranslation(TIRE_HORIZONTAL_TRANSLATE, 0, 0);
@@ -235,8 +230,10 @@ public class Car extends Geometry {
 	private void adjustSpeed(Move type) {
 		switch (type) {
 		case ACCELERATING:
+			double MAX_SPEED = 150;
 			if (this.currentSpeed >= MAX_SPEED)
 				return;
+			double ACCELERATION = 0.25;
 			currentSpeed = currentSpeed + ACCELERATION;
 			break;
 		case COASTING:
@@ -245,11 +242,13 @@ public class Car extends Geometry {
 				currentSpeed = 0;
 				return;
 			}
+			double COAST_DECELERATION = -0.1;
 			currentSpeed = currentSpeed + COAST_DECELERATION;
 			break;
 		case DECELERATING:
 			if (this.currentSpeed <= 0)
 				return;
+			double DECELERATION = -1;
 			currentSpeed = currentSpeed + DECELERATION;
 			break;
 		case STEADY:
@@ -299,6 +298,7 @@ public class Car extends Geometry {
 		int direction = (turnAngle > 0) ? 1 : -1;
 		double fudgeFactor = 0.005;
 		double bodyRollAngle = speed * turnAngle * fudgeFactor;
+		double MAX_BODY_ROLL_ANGLE = 3;
 		if (Math.abs(bodyRollAngle) > MAX_BODY_ROLL_ANGLE) {
 			bodyRollAngle = direction * MAX_BODY_ROLL_ANGLE;
 		}

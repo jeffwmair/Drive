@@ -102,7 +102,7 @@ public class Geometry {
 				return rotationEndOverEndTransition;
 		}
 	}
-	protected Rotation getRotation(Rotation.RotationDirection dir) {
+	public Rotation getRotation(Rotation.RotationDirection dir) {
 		switch (dir) {
 			case endToEnd:
 				return rotationEndOverEnd;
@@ -114,7 +114,7 @@ public class Geometry {
 				return rotationEndOverEnd;
 		}
 	}
-	protected Rotation getPostTranslateRotation() {
+	public Rotation getPostTranslateRotation() {
 		return rotationPostTranslate;
 	}
 	protected void transitionRotation(double startAngle, double endAngle, Rotation.RotationDirection dir,

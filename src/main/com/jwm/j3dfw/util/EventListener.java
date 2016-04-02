@@ -14,8 +14,6 @@ class EventListener implements MouseMotionListener, MouseWheelListener, MouseLis
 	private ControllerFactory controllerFactory;
 	private GeometryList geometryItems;
 	private boolean cmdKey, shiftKey;
-	private double lastX;
-	private double lastY;
 
 	EventListener(Scene scene, GeometryList items, ControllerFactory controllerFactory) {
 		this.geometryItems = items;
@@ -62,7 +60,8 @@ class EventListener implements MouseMotionListener, MouseWheelListener, MouseLis
 		switch (e.getKeyCode()) {
 		case 157:
 			cmdKey = true;
-			lastX = lastY = 0;
+			double lastY;
+			double lastX = lastY = 0;
 			break;
 		case 16:
 			shiftKey = true;
