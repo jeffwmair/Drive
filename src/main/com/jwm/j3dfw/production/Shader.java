@@ -1,6 +1,5 @@
 package com.jwm.j3dfw.production;
 
-import com.jwm.j3dfw.util.FileLoader;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -23,11 +22,11 @@ class Shader {
 		int f = gl.glCreateShader(GL2.GL_FRAGMENT_SHADER);
 
 		ClassLoader cl = Shader.class.getClassLoader();
-		InputStream vertexShaderInStream = FileLoader.class.getClassLoader().getResourceAsStream("graphics/" + vertexShaderResource);
+		InputStream vertexShaderInStream = Shader.class.getClassLoader().getResourceAsStream("graphics/" + vertexShaderResource);
 		if (vertexShaderInStream == null) {
 			throw new RuntimeException("Could not find the vertex shader resource named: " + vertexShaderResource);
 		}
-		InputStream fragmentShaderInStream= FileLoader.class.getClassLoader().getResourceAsStream("graphics/" + fragmentShaderResource);
+		InputStream fragmentShaderInStream= Shader.class.getClassLoader().getResourceAsStream("graphics/" + fragmentShaderResource);
 		if (fragmentShaderInStream == null) {
 			throw new RuntimeException("Could not find the fragment shader resource named: " + fragmentShaderResource);
 		}

@@ -1,7 +1,4 @@
-package com.jwm.j3dfw.util;
-
-import com.jwm.j3dfw.geometry.Material;
-import com.jwm.j3dfw.geometry.Mesh;
+package com.jwm.j3dfw.geometry;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -11,16 +8,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class FileLoader {
+class FileLoader {
 
-	public static Map<String, Material> loadedMaterials;
+	static Map<String, Material> loadedMaterials;
 	private static Map<String, Mesh> loadedMeshes;
 	static {
 		loadedMaterials = new HashMap<String, Material>();
 		loadedMeshes = new HashMap<String, Mesh>();
 	}
 
-	public static Material loadMaterial(String resourceName, boolean useKdForAmbient) throws Exception {
+	static Material loadMaterial(String resourceName, boolean useKdForAmbient) throws Exception {
 
 		/*
 		 * only load any material once, because its the same everywhere. For now
@@ -78,7 +75,7 @@ public class FileLoader {
 		}
 
 	}
-	public static Mesh loadMesh(String resourceName) throws Exception {
+	static Mesh loadMesh(String resourceName) throws Exception {
 
 		InputStream is = getResourceStream(resourceName);
 		

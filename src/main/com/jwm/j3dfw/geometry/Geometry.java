@@ -2,7 +2,6 @@ package com.jwm.j3dfw.geometry;
 
 import com.jwm.j3dfw.geometry.Transition.TransitionType;
 import com.jwm.j3dfw.production.TargetCamera;
-import com.jwm.j3dfw.util.FileLoader;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
