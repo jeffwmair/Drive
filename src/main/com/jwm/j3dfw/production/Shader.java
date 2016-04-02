@@ -26,7 +26,7 @@ class Shader {
 		if (vertexShaderInStream == null) {
 			throw new RuntimeException("Could not find the vertex shader resource named: " + vertexShaderResource);
 		}
-		InputStream fragmentShaderInStream= Shader.class.getClassLoader().getResourceAsStream("graphics/" + fragmentShaderResource);
+		InputStream fragmentShaderInStream = Shader.class.getClassLoader().getResourceAsStream("graphics/" + fragmentShaderResource);
 		if (fragmentShaderInStream == null) {
 			throw new RuntimeException("Could not find the fragment shader resource named: " + fragmentShaderResource);
 		}

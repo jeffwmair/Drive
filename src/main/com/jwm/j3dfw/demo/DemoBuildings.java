@@ -1,12 +1,13 @@
 package com.jwm.j3dfw.demo;
 
 import com.jwm.j3dfw.controller.ControllerFactory;
-import com.jwm.j3dfw.controller.ControllerFactoryDefaultImpl;
+import com.jwm.j3dfw.geometry.Geometry;
 import com.jwm.j3dfw.geometry.GeometryList;
 import com.jwm.j3dfw.geometry.Rotation;
 import com.jwm.j3dfw.geometry.Vertex;
 import com.jwm.j3dfw.geometry.shapes.Cube;
 import com.jwm.j3dfw.production.DefaultCamera;
+import com.jwm.j3dfw.production.TargetCamera;
 import com.jwm.j3dfw.util.MainFrame;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -40,13 +41,13 @@ public class DemoBuildings {
 			tower.setScale(0.25, randomHeight, 0.25);
 			plane.addChild(tower);
 		}
-		/*
+
 		Geometry geo = parts.firstOrNull(Geometry.class);
 		geo.initCamera();
 		TargetCamera cam = geo.getCamera();
 		cam.toggleAutoTrack();
-		*/
-		DefaultCamera cam = new DefaultCamera();
+
+		//DefaultCamera cam = new DefaultCamera();
 		Vertex camPos = cam.getPosition();
 		Vertex camTarget = cam.getTarget();
 		camTarget.setY(camTarget.getY()+20);
