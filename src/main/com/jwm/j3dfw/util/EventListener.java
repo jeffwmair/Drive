@@ -9,7 +9,7 @@ import com.jwm.j3dfw.production.Scene;
 import javax.media.opengl.awt.GLCanvas;
 import java.awt.event.*;
 
-public class EventListener implements MouseMotionListener, MouseWheelListener, MouseListener, KeyListener {
+class EventListener implements MouseMotionListener, MouseWheelListener, MouseListener, KeyListener {
 
 	private Scene activeScene;
 	private ControllerFactory controllerFactory;
@@ -18,7 +18,7 @@ public class EventListener implements MouseMotionListener, MouseWheelListener, M
 	private boolean cmdKey, shiftKey;
 	double lastX, lastY;
 
-	public EventListener(Scene scene, GeometryList items, ControllerFactory controllerFactory, GLCanvas canvas) {
+	EventListener(Scene scene, GeometryList items, ControllerFactory controllerFactory, GLCanvas canvas) {
 		this.geometryItems = items;
 		this.controllerFactory = controllerFactory;
 		this.canvas = canvas;

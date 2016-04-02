@@ -2,7 +2,6 @@ package com.jwm.j3dfw.demo;
 
 import com.jwm.j3dfw.controller.ControllerFactory;
 import com.jwm.j3dfw.controller.ControllerFactoryDefaultImpl;
-import com.jwm.j3dfw.demo.geometry.RotatingPlane;
 import com.jwm.j3dfw.geometry.GeometryList;
 import com.jwm.j3dfw.geometry.Rotation;
 import com.jwm.j3dfw.geometry.Vertex;
