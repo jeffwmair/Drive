@@ -9,7 +9,7 @@ import java.util.List;
 
 public class DomainFactory {
 	public static List<Geometry> getSpeedCalibrationRoadAndCar() {
-		List<Geometry> geo = new ArrayList<Geometry>();
+		List<Geometry> geo = new ArrayList<>();
 		/*
 		 * 1km of road; should take the car 36 seconds @ 100km/h Need to
 		 * temporarily set the CarController so that the mouse click sets it

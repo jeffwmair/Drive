@@ -13,8 +13,8 @@ class FileLoader {
 	static Map<String, Material> loadedMaterials;
 	private static Map<String, Mesh> loadedMeshes;
 	static {
-		loadedMaterials = new HashMap<String, Material>();
-		loadedMeshes = new HashMap<String, Mesh>();
+		loadedMaterials = new HashMap<>();
+		loadedMeshes = new HashMap<>();
 	}
 
 	static Material loadMaterial(String resourceName, boolean useKdForAmbient) throws Exception {
@@ -28,7 +28,6 @@ class FileLoader {
 		if (mat != null)
 			return mat;
 
-		BufferedReader br = null;
 		float[] ambient = new float[4];
 		float[] diffuse = new float[4];
 		float[] specular = new float[4];
@@ -36,8 +35,7 @@ class FileLoader {
 
 		InputStream is = getResourceStream(resourceName);
 
-		try {
-			br = new BufferedReader(new InputStreamReader(is));
+		try (BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
 			String line = br.readLine();
 
 			while (line != null) {
@@ -70,8 +68,6 @@ class FileLoader {
 			loadedMaterials.put(key, mat);
 			return mat;
 
-		} finally {
-			br.close();
 		}
 
 	}
@@ -84,13 +80,12 @@ class FileLoader {
 		if (m != null)
 			return m;
 
-		BufferedReader br = new BufferedReader(new InputStreamReader(is));
-		try {
+		try (BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
 			String line = br.readLine();
-			List<Float> allVertices = new ArrayList<Float>();
-			List<Float> allNormals = new ArrayList<Float>();
-			List<Float> verticesOnFaces = new ArrayList<Float>();
-			List<Float> vertexNormalsOnFaces = new ArrayList<Float>();
+			List<Float> allVertices = new ArrayList<>();
+			List<Float> allNormals = new ArrayList<>();
+			List<Float> verticesOnFaces = new ArrayList<>();
+			List<Float> vertexNormalsOnFaces = new ArrayList<>();
 
 			while (line != null) {
 				String[] values;
@@ -124,7 +119,7 @@ class FileLoader {
 						 * First component is the index of the vertex, second is
 						 * index of the vertex-normal. Indexes are actually
 						 * 1-based.
-						 * 
+						 *
 						 * There will be 3 components because these are triangle
 						 * poly's.
 						 */
@@ -171,8 +166,6 @@ class FileLoader {
 			loadedMeshes.put(key, m);
 			return m;
 
-		} finally {
-			br.close();
 		}
 	}
 

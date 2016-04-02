@@ -3,7 +3,6 @@ package com.jwm.j3dfw.geometry;
 import com.jwm.j3dfw.geometry.Transition.TransitionType;
 
 public abstract class TransitionEasing {
-	private final int SPEED_REFERENCE = 5000;
 
 	public static TransitionEasing getInstance(TransitionType type) throws Exception {
 		if (type == TransitionType.LINEAR) {
@@ -29,6 +28,7 @@ public abstract class TransitionEasing {
 	}
 	protected abstract double[] getTransitionAlgorithmSteps(int numSteps);
 	protected int getNumberOfStepsFromSpeed(int speedSelection) {
+		int SPEED_REFERENCE = 5000;
 		return SPEED_REFERENCE / speedSelection;
 	}
 }

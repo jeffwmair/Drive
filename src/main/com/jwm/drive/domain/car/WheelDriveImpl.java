@@ -2,7 +2,6 @@ package com.jwm.drive.domain.car;
 
 public class WheelDriveImpl {
 
-	private final double C_rollingResistance = 15;
 	private double velocity, wheel_force, radius;
 
 	public WheelDriveImpl(double wheelRadius) {
@@ -36,6 +35,7 @@ public class WheelDriveImpl {
 		double f_brake = brakeForce;
 
 		// as velocity increases, so does rolling resistance
+		double C_rollingResistance = 15;
 		double f_rollingResistance = -C_rollingResistance * velocity;
 
 		// net force

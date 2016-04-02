@@ -40,9 +40,9 @@ public class Geometry {
 		if (log.isDebugEnabled()) {
 			log.debug("new Geometry:" + this);
 		}
-		listeners = new ArrayList<GeometryListener>();
-		children = new ArrayList<Geometry>();
-		transformations = new ArrayList<Transformation>();
+		listeners = new ArrayList<>();
+		children = new ArrayList<>();
+		transformations = new ArrayList<>();
 		overallTranslation = new Translation(0, 0, 0);
 
 		rotationOverhead = Rotation.getOverheadRotation();
@@ -128,9 +128,6 @@ public class Geometry {
 			log.error("startAngle:"+startAngle+",endAngle:"+endAngle+", dir:"+dir, e);
 		}
 		getRotation(dir).setAngle(startAngle);
-	}
-	public void setScale(double scale) {
-		overallScale.set(scale);
 	}
 	public void setScale(double x, double y, double z) {
 		overallScale.set(x, y, z);

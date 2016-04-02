@@ -136,8 +136,8 @@ public class Car extends Geometry {
 	public void setBodyRollAngle(double angle) {
 		frame.setRotation(angle, RotationDirection.leftAndRight);
 	}
-	public void setForwardBackLeanAngle(double angle) {
-		frame.setRotation(angle, RotationDirection.endToEnd);
+	public void resetForwardBackLeanAngle() {
+		frame.setRotation(0, RotationDirection.endToEnd);
 	}
 	private void setOverheadRotationAngle(double angle) {
 		getRotation(RotationDirection.overhead).setAngle(angle);
@@ -198,13 +198,13 @@ public class Car extends Geometry {
 		children.add(tireRearLeft);
 		children.add(tireRearRight);
 
-		allTires = new ArrayList<CarTire>();
+		allTires = new ArrayList<>();
 		allTires.add(tireFrontLeft);
 		allTires.add(tireFrontRight);
 		allTires.add(tireRearLeft);
 		allTires.add(tireRearRight);
 
-		frontTires = new ArrayList<CarTire>();
+		frontTires = new ArrayList<>();
 		frontTires.add(tireFrontLeft);
 		frontTires.add(tireFrontRight);
 	}
@@ -239,7 +239,7 @@ public class Car extends Geometry {
 			currentSpeed = currentSpeed + ACCELERATION;
 			break;
 		case COASTING:
-			setForwardBackLeanAngle(0);
+			resetForwardBackLeanAngle();
 			if (currentSpeed <= 0) {
 				currentSpeed = 0;
 				return;

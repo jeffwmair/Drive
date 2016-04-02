@@ -35,18 +35,18 @@ public class Curve {
 	}
 	public double getMin() {
 		double min = Double.MAX_VALUE;
-		for (int i = 0; i < val.length; i++) {
-			if (val[i] < min) {
-				min = val[i];
+		for (double aVal : val) {
+			if (aVal < min) {
+				min = aVal;
 			}
 		}
 		return min;
 	}
 	public double getMax() {
 		double max = Double.MIN_VALUE;
-		for (int i = 0; i < val.length; i++) {
-			if (val[i] > max) {
-				max = val[i];
+		for (double aVal : val) {
+			if (aVal > max) {
+				max = aVal;
 			}
 		}
 		return max;

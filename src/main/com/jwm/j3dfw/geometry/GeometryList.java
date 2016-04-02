@@ -9,7 +9,7 @@ public class GeometryList implements Iterable<Geometry> {
 	private List<Geometry> list;
 
 	public GeometryList() {
-		list = new ArrayList<Geometry>();
+		list = new ArrayList<>();
 	}
 	public void add(Geometry item) {
 		list.add(item);

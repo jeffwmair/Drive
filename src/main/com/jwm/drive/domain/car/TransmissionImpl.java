@@ -7,18 +7,14 @@ import java.util.List;
 
 public class TransmissionImpl implements Transmission {
 
-    /**
-     * The transmission introduces some energy losses
-     */
-    private final double TransmissionEfficiency = 0.8;
 
     private TransmissionGear currentGear;
-	private TransmissionGear neutral = new TransmissionGearNeutral();
 
     public TransmissionImpl(List<TransmissionGear> forwardGears, TransmissionGear reverse) {
 		if (forwardGears.size() < 1 || forwardGears.size() > 6) {
 			throw new IllegalArgumentException("Transmission must have at least 1 and at most 6 gears");
 		}
+		TransmissionGear neutral = new TransmissionGearNeutral();
         currentGear = neutral;
 	}
 
@@ -28,6 +24,10 @@ public class TransmissionImpl implements Transmission {
      */
 	@Override
 	public void update(double engineTorque) {
+		/**
+		 * The transmission introduces some energy losses
+		 */
+		double TransmissionEfficiency = 0.8;
         currentGear.applyTorque(engineTorque * TransmissionEfficiency);
 	}
 
