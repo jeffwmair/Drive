@@ -44,7 +44,7 @@ public class MainFrame {
 		GLCanvas canvas = new GLCanvas(caps);
 
 		Scene scene = new Scene(parts, cam);
-		EventListener listener = new EventListener(scene, parts, controllerFactory, canvas);
+		EventListener listener = new EventListener(scene, parts, controllerFactory);
 		canvas.addMouseMotionListener(listener);
 		canvas.addMouseWheelListener(listener);
 		canvas.addMouseListener(listener);
