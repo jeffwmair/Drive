@@ -13,9 +13,9 @@ import org.apache.log4j.Logger;
 
 import java.util.Random;
 
-public class DemoBuildings {
+public class DemoBuildingsMain {
 	
-	private static Logger log = LogManager.getLogger(DemoBuildings.class);
+	private static Logger log = LogManager.getLogger(DemoBuildingsMain.class);
 	public static void main(String[] args) {
 		GeometryList parts = new GeometryList();
 		RotatingPlane plane = new RotatingPlane();
