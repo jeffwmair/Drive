@@ -21,7 +21,6 @@ class Shader {
 		int v = gl.glCreateShader(GL2.GL_VERTEX_SHADER);
 		int f = gl.glCreateShader(GL2.GL_FRAGMENT_SHADER);
 
-		ClassLoader cl = Shader.class.getClassLoader();
 		InputStream vertexShaderInStream = Shader.class.getClassLoader().getResourceAsStream("graphics/" + vertexShaderResource);
 		if (vertexShaderInStream == null) {
 			throw new RuntimeException("Could not find the vertex shader resource named: " + vertexShaderResource);

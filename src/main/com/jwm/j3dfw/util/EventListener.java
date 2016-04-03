@@ -60,8 +60,6 @@ class EventListener implements MouseMotionListener, MouseWheelListener, MouseLis
 		switch (e.getKeyCode()) {
 		case 157:
 			cmdKey = true;
-			double lastY;
-			double lastX = lastY = 0;
 			break;
 		case 16:
 			shiftKey = true;

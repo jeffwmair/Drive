@@ -34,6 +34,9 @@ public class Geometry {
 	public Geometry() {
 		// todo: come up with something better
 		this(null, null);
+		if (log.isDebugEnabled()) {
+			log.debug("New "+this.toString());
+		}
 	}
 
 	public Geometry(String meshFilePrefix, String materialFilePrefix) {
@@ -62,6 +65,7 @@ public class Geometry {
 		transformations.add(rotationEndOverEnd);
 		transformations.add(rotationLeftAndRight);
 		transformations.add(overallScale);
+		log.debug("Geometry new vertex");
 		offsetFromOrigin = new Vertex(0, 0, 0);
 
 		// todo: i don't like this
@@ -148,34 +152,25 @@ public class Geometry {
 		cam = new TargetCamera();
 		cam.setTargetGeometry(this);
 	}
-	public Vertex getCenter() {
-		if (log.isDebugEnabled()) {
-			log.debug("getCenter");
-		}
+	public void getCenter(Vertex point) {
 
 		Mesh m = mesh;
 		if (m == null) {
-			if (log.isDebugEnabled()) {
-				log.debug("m is null, trying to get the first child's mesh");
-			}
 			if (children == null || children.size() == 0) {
 				throw new RuntimeException("Cannot get the center for this ("+this+") because it has no mesh and has no child geometry items.");
 			}
 			m = children.get(0).mesh;
 		}
-		Vertex meshCenter = m.getCenter();
-		Vertex center = overallTranslation.getTransformedVertex(meshCenter);
-		return center;
+		m.getCenter(point);
+		overallTranslation.transformVertex(point);
 	}
-	public Vertex getNearbyPointOnYPlane(double distanceFromCenter, double angleOverheadRotation) {
-		Vertex center = getCenter();
-		Vertex nearby = new Vertex(center.x, center.y, center.z);
+	public void getNearbyPointOnYPlane(Vertex point, double distanceFromCenter, double angleOverheadRotation) {
+		getCenter(point);
 		double radians = Math.toRadians(angleOverheadRotation - rotationOverhead.getAngle());
 		double x = distanceFromCenter * Math.cos(radians);
 		double z = distanceFromCenter * Math.sin(radians);
-		nearby.x += x;
-		nearby.z += z;
-		return nearby;
+		point.setX(point.getX()+x);
+		point.setZ(point.getZ()+z);
 	}
 	public Rotation addRotation(double angle, Rotation.RotationDirection dir) {
 		Rotation r = new Rotation(angle, dir);
@@ -253,6 +248,7 @@ public class Geometry {
 		}
 	}
 	protected void setOffsetFromOrigin(double x, double y, double z) {
+		log.debug("getOffsetFromOrigin()");
 		offsetFromOrigin = new Vertex(x, y, z);
 	}
 

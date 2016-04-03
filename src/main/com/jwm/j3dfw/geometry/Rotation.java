@@ -1,14 +1,19 @@
 package com.jwm.j3dfw.geometry;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import javax.media.opengl.GL2;
 
 public class Rotation extends Transformation {
+	private static Logger log = LogManager.getLogger(Rotation.class);
 	private double angle, x, y, z;
 
 	private static Vertex vertexStraightUp;
 
 	private static Vertex getStraightUpVector() {
 		if (vertexStraightUp == null) {
+			log.debug("getStraightUpVector");
 			vertexStraightUp = new Vertex(0, 1, 0);
 		}
 		return vertexStraightUp;
@@ -18,6 +23,7 @@ public class Rotation extends Transformation {
 
 	private static Vertex getXVector() {
 		if (vectorX == null) {
+			log.debug("getXVector");
 			vectorX = new Vertex(1, 0, 0);
 		}
 		return vectorX;
@@ -27,6 +33,7 @@ public class Rotation extends Transformation {
 
 	private static Vertex getZVector() {
 		if (vectorZ == null) {
+			log.debug("getZVector");
 			vectorZ = new Vertex(0, 0, 1);
 		}
 		return vectorZ;
@@ -64,11 +71,17 @@ public class Rotation extends Transformation {
 	}
 
 	public Rotation(double angle, RotationDirection dir) {
+		if (log.isDebugEnabled()) {
+			log.debug("new " + this.toString());
+		}
 		Vertex v = getVertexForRotationDir(dir);
 		setValues(angle, v.x, v.y, v.z);
 		this.transType = TransformationType.rotate;
 	}
 	private Rotation(double angle, double vecX, double vecY, double vecZ) {
+		if (log.isDebugEnabled()) {
+			log.debug("new " + this.toString());
+		}
 		setValues(angle, vecX, vecY, vecZ);
 		this.transType = TransformationType.rotate;
 	}

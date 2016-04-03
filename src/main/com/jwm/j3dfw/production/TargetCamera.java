@@ -22,13 +22,13 @@ public class TargetCamera extends Camera {
 		double yPlaneDistance = zoom_distance * yPlaneDistance_pct;
 		double verticalDistance = zoom_distance * (1 - yPlaneDistance_pct);
 		if (autoTrack) {
-			camera_target = targetItem.getCenter();
+			targetItem.getCenter(camera_target);
 		}
 		if (autoRotate) {
-			camera_position = targetItem.getNearbyPointOnYPlane(yPlaneDistance, h_angle);
+			targetItem.getNearbyPointOnYPlane(camera_position, yPlaneDistance, h_angle);
 		}
-		if (log.isDebugEnabled()) {
-			log.debug("camera_position:" + camera_position + ", camera_target:" + camera_target + ", verticalDistance:"+verticalDistance);
+		if (log.isTraceEnabled()) {
+			log.trace("camera_position:" + camera_position + ", camera_target:" + camera_target + ", verticalDistance:"+verticalDistance);
 		}
 		glu.gluLookAt(camera_position.getX(), camera_position.getY() + verticalDistance, camera_position.getZ(), camera_target.getX(), camera_target.getY(), camera_target.getZ(), 0, 1, 0);
 	}

@@ -26,6 +26,7 @@ public abstract class Camera {
 	protected abstract void look(GLU glu);
 
 	Camera() {
+		log.info("Created new camera");
 		camera_position = new Vertex(0, 0, 10);
 		camera_target = new Vertex(0, 0, 0);
 		zoom_distance = 25;
