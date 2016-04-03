@@ -1,4 +1,4 @@
-package com.jwm.drive.domain.car;
+package com.jwm.drive.domain;
 
 class SystemClockStub implements SystemClock {
 

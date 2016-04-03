@@ -1,4 +1,4 @@
-package com.jwm.drive.domain.car;
+package com.jwm.drive.domain;
 
 interface Wheel {
 	void update(double massAtWheel, double brakeForce, double surfaceFriction, double accelerationForce, double steeringAngle);

@@ -1,4 +1,4 @@
-package com.jwm.drive.domain.car;
+package com.jwm.drive.domain;
 
 interface TransmissionGear {
     void applyTorque(double torque);

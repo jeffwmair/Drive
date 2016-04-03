@@ -1,6 +1,5 @@
-package com.jwm.drive.domain.car;
+package com.jwm.drive.domain;
 
-import com.jwm.drive.domain.car.Engine.PedalPress;
 import junit.framework.Assert;
 import org.junit.Test;
 
@@ -57,9 +56,9 @@ public class EngineTest {
 		
 		clock.setMillisecondDelta(15);
 
-		engine.update(PedalPress.None);
+		engine.update(Engine.PedalPress.None);
 		Assert.assertTrue(engine.getRpm() > 6000);
-		engine.update(PedalPress.None);
+		engine.update(Engine.PedalPress.None);
 		Assert.assertTrue(engine.getRpm() > 6000);
 
 	}
@@ -87,7 +86,7 @@ public class EngineTest {
 			currentTime += time;
 		}
 		for (int i = 0; i < 175; i++) {
-			engine.update(PedalPress.None);
+			engine.update(Engine.PedalPress.None);
 			double rpm = engine.getRpm();
 			double trq = engine.getTorque();
 			System.out.format("%d,%s,%f,%f\n", currentTime, "None", rpm, trq);

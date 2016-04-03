@@ -1,6 +1,6 @@
-package com.jwm.drive.domain.car;
+package com.jwm.drive.domain;
 
-import com.jwm.drive.domain.car.Curve.CurveDirection;
+import com.jwm.drive.domain.Curve.CurveDirection;
 
 class EngineImpl implements Engine {
 
