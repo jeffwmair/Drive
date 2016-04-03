@@ -3,10 +3,10 @@ package com.jwm.drive.controller;
 import com.jwm.drive.geometry.Car;
 import com.jwm.j3dfw.controller.Controller;
 
-public class CarController extends Controller {
+class CarController extends Controller {
 	private Car c;
 
-	public CarController(Car c) {
+	CarController(Car c) {
 		super(c);
 		this.c = c;
 	}
