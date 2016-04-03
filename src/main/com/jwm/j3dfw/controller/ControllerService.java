@@ -5,27 +5,23 @@ import com.jwm.j3dfw.production.Camera;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-public class Controller {
+public class ControllerService {
 
-	private static Logger log = LogManager.getLogger(Controller.class);
-	private Geometry geo;
+	private static Logger log = LogManager.getLogger(ControllerService.class);
 
-	public Controller(Geometry g) {
-		geo = g;
-	}
-	public void leftMouseDown() {
+	public void leftMouseDown(Geometry geo) {
 
 	}
-	public void rightMouseDown() {
+	public void rightMouseDown(Geometry geo) {
 
 	}
-	public void leftMouseUp() {
+	public void leftMouseUp(Geometry geo) {
 
 	}
-	public void rightMouseUp() {
+	public void rightMouseUp(Geometry geo) {
 
 	}
-	public void keyPress(int keyCode) {
+	public void keyPress(Geometry geo, int keyCode) {
 
 		if (log.isDebugEnabled()) {
 			log.debug("keyPress:" + keyCode);
@@ -36,10 +32,10 @@ public class Controller {
 
 		}
 	}
-	public void setMousePosition(double xPos, double percent) {
+	public void setMousePosition(Geometry geo, double xPos, double percent) {
 
 	}
-	public void mouseWheelMoved(int wheelRotation) {
+	public void mouseWheelMoved(Geometry geo, int wheelRotation) {
 
 		if (log.isDebugEnabled()) {
 			log.debug("mouseWheelMoved:" + wheelRotation);
@@ -54,7 +50,7 @@ public class Controller {
 		}
 		cam.setZoom(wheelRotation);
 	}
-	public void cmdMouseWheelMoved(int wheelMoved) {
+	public void cmdMouseWheelMoved(Geometry geo, int wheelMoved) {
 
 		if (log.isDebugEnabled()) {
 			log.debug("cmdMouseWheelMoved:" + wheelMoved);
@@ -70,7 +66,7 @@ public class Controller {
 		double angleChange = wheelMoved;
 		cam.incrementAngle(angleChange);
 	}
-	public void shiftMouseWheelMoved(int wheelMoved) {
+	public void shiftMouseWheelMoved(Geometry geo, int wheelMoved) {
 		if (log.isDebugEnabled()) {
 			log.debug("shiftMouseWheelMoved:" + wheelMoved);
 		}

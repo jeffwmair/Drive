@@ -1,9 +1,9 @@
 package com.jwm.drive;
 
-import com.jwm.drive.controller.DriveControllerFactory;
+import com.jwm.drive.controller.DriveControllerServiceDirectory;
 import com.jwm.drive.geometry.Car;
 import com.jwm.drive.geometry.DomainFactory;
-import com.jwm.j3dfw.controller.ControllerFactory;
+import com.jwm.j3dfw.controller.ControllerDirectory;
 import com.jwm.j3dfw.geometry.Geometry;
 import com.jwm.j3dfw.geometry.GeometryList;
 import com.jwm.j3dfw.production.Camera;
@@ -18,7 +18,7 @@ public class Main {
 	public static void main(String[] args) {
 		log.info("Starting application");
 		GeometryList parts = DomainFactory.getCarOnGranularRoad();
-		ControllerFactory cf = new DriveControllerFactory();
+		ControllerDirectory cf = new DriveControllerServiceDirectory();
 		Camera cam = null;
 
 		// TODO: something better than this

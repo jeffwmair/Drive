@@ -1,6 +1,6 @@
 package com.jwm.j3dfw.demo;
 
-import com.jwm.j3dfw.controller.ControllerFactory;
+import com.jwm.j3dfw.controller.ControllerDirectory;
 import com.jwm.j3dfw.geometry.Geometry;
 import com.jwm.j3dfw.geometry.GeometryList;
 import com.jwm.j3dfw.geometry.Rotation;
@@ -52,12 +52,12 @@ public class DemoBuildingsMain {
 		camTarget.setY(camTarget.getY()+20);
 		camPos.setY(20);
 
-		ControllerFactory cf = new ControllerFactoryDefaultImpl();
+		ControllerDirectory cd = new ControllerDirectoryDefaultImpl();
 
 		int targetFps = 60;
 		int frameWidth = 800;
 		int frameHeight = 800;
-		MainFrame.startMainFrame(parts, cf, cam, targetFps, frameWidth, frameHeight);
+		MainFrame.startMainFrame(parts, cd, cam, targetFps, frameWidth, frameHeight);
 	}
 
 	private static double getRandom(double min, double max, Random r) {

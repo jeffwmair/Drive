@@ -1,7 +1,7 @@
 package com.jwm.j3dfw.util;
 
-import com.jwm.j3dfw.controller.Controller;
-import com.jwm.j3dfw.controller.ControllerFactory;
+import com.jwm.j3dfw.controller.ControllerService;
+import com.jwm.j3dfw.controller.ControllerDirectory;
 import com.jwm.j3dfw.geometry.Geometry;
 import com.jwm.j3dfw.geometry.GeometryList;
 import com.jwm.j3dfw.production.Scene;
@@ -11,13 +11,13 @@ import java.awt.event.*;
 class EventListener implements MouseMotionListener, MouseWheelListener, MouseListener, KeyListener {
 
 	private Scene activeScene;
-	private ControllerFactory controllerFactory;
+	private ControllerDirectory controllerDirectory;
 	private GeometryList geometryItems;
 	private boolean cmdKey, shiftKey;
 
-	EventListener(Scene scene, GeometryList items, ControllerFactory controllerFactory) {
+	EventListener(Scene scene, GeometryList items, ControllerDirectory controllerDirectory) {
 		this.geometryItems = items;
-		this.controllerFactory = controllerFactory;
+		this.controllerDirectory = controllerDirectory;
 		activeScene = scene;
 	}
 
@@ -34,7 +34,7 @@ class EventListener implements MouseMotionListener, MouseWheelListener, MouseLis
 		double xPos = x - viewportWidth / 2.0;
 		double xPct = 2 * xPos / viewportWidth;
 		for (Geometry g : geometryItems) {
-			controllerFactory.getInstance(g).setMousePosition(xPos, xPct);
+			controllerDirectory.getInstance(g).setMousePosition(g, xPos, xPct);
 		}
 	}
 
@@ -42,11 +42,11 @@ class EventListener implements MouseMotionListener, MouseWheelListener, MouseLis
 	public void mouseWheelMoved(MouseWheelEvent e) {
 		for (Geometry g : geometryItems) {
 			if (cmdKey) {
-				controllerFactory.getInstance(g).mouseWheelMoved(e.getWheelRotation());
+				controllerDirectory.getInstance(g).mouseWheelMoved(g, e.getWheelRotation());
 			} else if (shiftKey) {
-				controllerFactory.getInstance(g).shiftMouseWheelMoved(e.getWheelRotation());
+				controllerDirectory.getInstance(g).shiftMouseWheelMoved(g, e.getWheelRotation());
 			} else {
-				controllerFactory.getInstance(g).cmdMouseWheelMoved(e.getWheelRotation());
+				controllerDirectory.getInstance(g).cmdMouseWheelMoved(g, e.getWheelRotation());
 			}
 		}
 	}
@@ -68,7 +68,7 @@ class EventListener implements MouseMotionListener, MouseWheelListener, MouseLis
 			break;
 		}
 		for (Geometry g : geometryItems) {
-			controllerFactory.getInstance(g).keyPress(e.getKeyChar());
+			controllerDirectory.getInstance(g).keyPress(g, e.getKeyChar());
 		}
 	}
 
@@ -95,13 +95,13 @@ class EventListener implements MouseMotionListener, MouseWheelListener, MouseLis
 	@Override
 	public void mousePressed(MouseEvent e) {
 		for (Geometry g : geometryItems) {
-			Controller c = controllerFactory.getInstance(g);
+			ControllerService c = controllerDirectory.getInstance(g);
 			switch (e.getButton()) {
 			case 1:
-				c.leftMouseDown();
+				c.leftMouseDown(g);
 				break;
 			case 3:
-				c.rightMouseDown();
+				c.rightMouseDown(g);
 				break;
 			}
 		}
@@ -109,13 +109,13 @@ class EventListener implements MouseMotionListener, MouseWheelListener, MouseLis
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		for (Geometry g : geometryItems) {
-			Controller c = controllerFactory.getInstance(g);
+			ControllerService c = controllerDirectory.getInstance(g);
 			switch (e.getButton()) {
 			case 1:
-				c.leftMouseUp();
+				c.leftMouseUp(g);
 				break;
 			case 3:
-				c.rightMouseUp();
+				c.rightMouseUp(g);
 				break;
 			}
 		}
