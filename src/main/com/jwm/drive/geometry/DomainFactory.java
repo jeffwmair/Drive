@@ -2,7 +2,6 @@ package com.jwm.drive.geometry;
 
 import com.jwm.j3dfw.geometry.Geometry;
 import com.jwm.j3dfw.geometry.GeometryList;
-import com.jwm.j3dfw.geometry.shapes.Cube;
 import com.jwm.j3dfw.geometry.shapes.Plane;
 import com.jwm.j3dfw.production.Camera;
 

@@ -1,10 +1,8 @@
 package com.jwm.drive;
 
 import com.jwm.drive.controller.DriveControllerServiceDirectory;
-import com.jwm.drive.geometry.Car;
 import com.jwm.drive.geometry.DomainFactory;
 import com.jwm.j3dfw.controller.ControllerDirectory;
-import com.jwm.j3dfw.geometry.Geometry;
 import com.jwm.j3dfw.geometry.GeometryList;
 import com.jwm.j3dfw.production.Camera;
 import com.jwm.j3dfw.util.MainFrame;
