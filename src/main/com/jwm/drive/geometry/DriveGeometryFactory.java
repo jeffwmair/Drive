@@ -1,6 +1,7 @@
 package com.jwm.drive.geometry;
 
 import com.jwm.j3dfw.geometry.Geometry;
+import com.jwm.j3dfw.geometry.GeometryFactory;
 import com.jwm.j3dfw.geometry.GeometryList;
 import com.jwm.j3dfw.geometry.shapes.Plane;
 import com.jwm.j3dfw.production.Camera;
@@ -8,10 +9,10 @@ import com.jwm.j3dfw.production.Camera;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DomainFactory {
+public class DriveGeometryFactory implements GeometryFactory {
 	private static Car c = null;
 
-	public static List<Geometry> getSpeedCalibrationRoadAndCar() {
+	private List<Geometry> getSpeedCalibrationRoadAndCar() {
 		List<Geometry> geo = new ArrayList<>();
 		/*
 		 * 1km of road; should take the car 36 seconds @ 100km/h Need to
@@ -33,7 +34,8 @@ public class DomainFactory {
 	 * Get all the geometry items for the scene
  	 * @return
      */
-	public static GeometryList getGeometryObjects() {
+	@Override
+	public GeometryList buildGeometryItems() {
 		GeometryList geo = new GeometryList();
 		double roadSeparation = 10.05;
 		for (int i = 0; i < 25; i++) {
@@ -52,7 +54,8 @@ public class DomainFactory {
 	 * Get the main camera to be used
 	 * @return
      */
-	public static Camera getMainCamera() {
+	@Override
+	public Camera getMainCamera() {
 		if (c == null) {
 			throw new RuntimeException("Car not yet initialized, so can't get the camera!");
 		}

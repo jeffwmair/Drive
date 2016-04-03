@@ -1,4 +1,4 @@
-package com.jwm.j3dfw.demo;
+package com.jwm.j3dfw.demo.buildings;
 
 import com.jwm.j3dfw.controller.ControllerDirectory;
 import com.jwm.j3dfw.controller.ControllerService;
