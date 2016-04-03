@@ -1,6 +1,6 @@
 package com.jwm.drive.controller;
 
-import com.jwm.drive.geometry.objects.Car;
+import com.jwm.drive.geometry.Car;
 import com.jwm.j3dfw.controller.Controller;
 
 public class CarController extends Controller {

@@ -1,4 +1,4 @@
-package com.jwm.drive.geometry.objects;
+package com.jwm.drive.geometry;
 
 import com.jwm.j3dfw.geometry.Geometry;
 
