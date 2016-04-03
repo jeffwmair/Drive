@@ -1,8 +1,6 @@
-package com.jwm.drive.domain.modelling;
+package com.jwm.drive.domain.car;
 
-import com.jwm.drive.domain.interfaces.SystemClock;
-
-public class SystemClockImpl implements SystemClock {
+class SystemClockImpl implements SystemClock {
 
 	private long lastClockTime;
 

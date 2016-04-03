@@ -1,8 +1,8 @@
-package com.jwm.drive.domain.modelling;
+package com.jwm.drive.domain.car;
 
-public class Curve {
+class Curve {
 	
-	public enum CurveDirection { Up, Dn }
+	enum CurveDirection { Up, Dn }
 
 	private double[] val;
 	private double domainMin, domainMax;
@@ -10,7 +10,7 @@ public class Curve {
 	private final double MIN_ACCURACY = 0.000000001;
 	private CurveDirection direction;
 
-	public Curve(double[] values, double domainMin, double domainMax, CurveDirection dir) {
+	Curve(double[] values, double domainMin, double domainMax, CurveDirection dir) {
 		if (values.length < 3) {
 			throw new IllegalArgumentException("Must provide at least 3 elements to a curve");
 		}
@@ -23,7 +23,7 @@ public class Curve {
 		this.domainMax = domainMax;
 	}
 	
-	public CurveDirection getDirection() { return this.direction; }
+	CurveDirection getDirection() { return this.direction; }
 
 	/**
 	 * get the max value in the curve

@@ -1,8 +1,6 @@
 package com.jwm.drive.domain.car;
 
-import com.jwm.drive.domain.interfaces.Tachometer;
-
-public class TachometerImpl implements Tachometer {
+class TachometerImpl implements Tachometer {
 
 	private int rpm;
 

@@ -1,14 +1,8 @@
 package com.jwm.drive.domain.car;
 
+import com.jwm.drive.domain.car.Engine.PedalPress;
 import junit.framework.Assert;
-
 import org.junit.Test;
-
-import com.jwm.drive.domain.interfaces.Engine;
-import com.jwm.drive.domain.interfaces.Engine.PedalPress;
-import com.jwm.drive.domain.interfaces.Transmission;
-import com.jwm.drive.domain.modelling.Curve;
-import com.jwm.drive.domain.modelling.SystemClockStub;
 
 public class EngineTest {
 
@@ -24,7 +18,7 @@ public class EngineTest {
 		Engine engine = new EngineImpl(torqueCurve, rpmUpCurve, rpmDnCurve, trans, clock);
 
 		clock.setMillisecondDelta(1500);
-		engine.update(PedalPress.Full);
+		engine.update(Engine.PedalPress.Full);
 		double rpm = engine.getRpm();
 		Assert.assertEquals(rpmUpCurve.getMax(), rpm);
 	}
@@ -41,7 +35,7 @@ public class EngineTest {
 		Engine engine = new EngineImpl(torqueCurve, rpmUpCurve, rpmDnCurve, trans, clock);
 
 		clock.setMillisecondDelta(15);
-		engine.update(PedalPress.Full);
+		engine.update(Engine.PedalPress.Full);
 		double rpm = engine.getRpm();
 		Assert.assertTrue(rpm > 1500 && rpm < 1600);
 	}
@@ -58,7 +52,7 @@ public class EngineTest {
 		
 		Engine engine = new EngineImpl(torqueCurve, rpmUpCurve, rpmDnCurve, trans, clock);
 		clock.setMillisecondDelta(1500);	// should take us to full rpm
-		engine.update(PedalPress.Full);
+		engine.update(Engine.PedalPress.Full);
 		Assert.assertTrue(engine.getRpm() > 6200);
 		
 		clock.setMillisecondDelta(15);
@@ -86,7 +80,7 @@ public class EngineTest {
 		System.out.println("Time_ms,RPM,Torque");
 		long currentTime = time;
 		for (int i = 0; i < 150; i++) {
-			engine.update(PedalPress.Full);
+			engine.update(Engine.PedalPress.Full);
 			double rpm = engine.getRpm();
 			double trq = engine.getTorque();
 			System.out.format("%d,%s,%f,%f\n", currentTime, "Full", rpm, trq);

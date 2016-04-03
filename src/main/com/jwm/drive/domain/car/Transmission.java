@@ -1,9 +1,8 @@
-package com.jwm.drive.domain.interfaces;
+package com.jwm.drive.domain.car;
 
-public interface Transmission {
+interface Transmission {
 
 	enum ShiftType { UP, DOWN, TO_N, TO_P }
-
 	void update(double engineTorque);
 	double getTorqueLoadPct();
 	void shift(ShiftType shift);

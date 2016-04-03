@@ -1,8 +1,6 @@
 package com.jwm.drive.domain.car;
 
-import com.jwm.drive.domain.interfaces.Transmission;
-
-public class TransmissionStub implements Transmission {
+class TransmissionStub implements Transmission {
 
 	private double load;
 

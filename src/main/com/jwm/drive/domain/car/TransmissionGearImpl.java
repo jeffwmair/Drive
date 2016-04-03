@@ -1,11 +1,9 @@
 package com.jwm.drive.domain.car;
 
-import com.jwm.drive.domain.interfaces.TransmissionGear;
-
 /**
  * Represents a gear in the transmission
  */
-public class TransmissionGearImpl implements TransmissionGear {
+class TransmissionGearImpl implements TransmissionGear {
 
     private double ratio;
     private double speed;

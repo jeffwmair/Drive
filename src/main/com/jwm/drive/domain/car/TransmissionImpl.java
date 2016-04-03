@@ -1,11 +1,8 @@
 package com.jwm.drive.domain.car;
 
-import com.jwm.drive.domain.interfaces.Transmission;
-import com.jwm.drive.domain.interfaces.TransmissionGear;
-
 import java.util.List;
 
-public class TransmissionImpl implements Transmission {
+class TransmissionImpl implements Transmission {
 
 
     private TransmissionGear currentGear;

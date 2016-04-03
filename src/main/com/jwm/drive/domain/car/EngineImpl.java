@@ -1,28 +1,24 @@
 package com.jwm.drive.domain.car;
 
-import com.jwm.drive.domain.interfaces.Engine;
-import com.jwm.drive.domain.interfaces.SystemClock;
-import com.jwm.drive.domain.interfaces.Transmission;
-import com.jwm.drive.domain.modelling.Curve;
-import com.jwm.drive.domain.modelling.Curve.CurveDirection;
+import com.jwm.drive.domain.car.Curve.CurveDirection;
 
-public class EngineImpl implements Engine {
+class EngineImpl implements Engine {
 
 	private static final double MIN_RPM = 1500;
 	private static final double MAX_RPM = 6250;
 	private static final double MIN_RPM_TIME = 100;
 	private static final double NO_LOAD_RPM_PEAK_TIME_MS = 1500;
 
-	public static Curve getTorqueCurve() {
+	static Curve getTorqueCurve() {
 		double[] vals = { 50, 80, 110, 125, 150, 165, 180, 180, 185, 190, 195, 198, 195, 192, 191, 190, 185, 175, 170,
 				170 };
 		return new Curve(vals, MIN_RPM, MAX_RPM, CurveDirection.Up);
 	}
-	public static Curve getRpmIncreaseCurve() {
+	static Curve getRpmIncreaseCurve() {
 		double[] vals = { 1500, 2000, 2800, 3500, 4100, 4600, 4900, 5151, 5350, 5600, 5800, 5975, 6100, 6200, 6250 };
 		return new Curve(vals, MIN_RPM_TIME, NO_LOAD_RPM_PEAK_TIME_MS, CurveDirection.Up);
 	}
-	public static Curve getRpmDecreaseCurve() {
+	static Curve getRpmDecreaseCurve() {
 		double[] vals = { 6250, 6150, 6050, 5800, 5500, 5100, 4500, 3800, 3000, 2200, 1785, 1600, 1575, 1550, 1500 };
 		return new Curve(vals, MIN_RPM_TIME, NO_LOAD_RPM_PEAK_TIME_MS, CurveDirection.Dn);
 	}

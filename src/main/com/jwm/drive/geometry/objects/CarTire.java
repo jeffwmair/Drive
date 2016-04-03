@@ -6,7 +6,7 @@ import com.jwm.j3dfw.geometry.Rotation.RotationDirection;
 
 public class CarTire extends Geometry {
 	private double spinSpeedInKmph;
-	private Rotation tireSpinRotation, tireTurnAngle;
+	final private Rotation tireSpinRotation, tireTurnAngle;
 
 	public CarTire() {
 		super("tire", "tire");

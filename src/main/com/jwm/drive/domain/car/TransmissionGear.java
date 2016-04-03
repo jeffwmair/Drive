@@ -1,6 +1,6 @@
-package com.jwm.drive.domain.interfaces;
+package com.jwm.drive.domain.car;
 
-public interface TransmissionGear {
+interface TransmissionGear {
     void applyTorque(double torque);
 	double getRatio();
     double getSpeed();

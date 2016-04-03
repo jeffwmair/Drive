@@ -1,8 +1,6 @@
-package com.jwm.drive.domain.modelling;
+package com.jwm.drive.domain.car;
 
-import com.jwm.drive.domain.interfaces.SystemClock;
-
-public class SystemClockStub implements SystemClock {
+class SystemClockStub implements SystemClock {
 
 	private long delta;
 
