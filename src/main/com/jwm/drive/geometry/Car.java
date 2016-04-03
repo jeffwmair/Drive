@@ -155,17 +155,6 @@ public class Car extends Geometry {
 		setOverheadRotationAngle(overheadAngle);
 		speed = getCarSpeed();
 		setWheelSpeed(speed);
-
-
-		/*
-		List<String> stats = new ArrayList<>();
-		stats.add("Movement:" + this.toString());
-		stats.add(getSpeed() + " km/h");
-		stats.add("Wheel angle:" + (int) getWheelAngle());
-		stats.add("Overhead angle: " + (int) overheadAngle);
-		stats.add("Min turn radius: " + (int) getMinTurnRadius());
-		writeInfoToListeners(stats);
-		*/
 	}
 	private void setWheelSpeed(double speed) {
 		for (CarTire tire : allTires) {

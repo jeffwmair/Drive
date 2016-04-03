@@ -17,24 +17,14 @@ public class Main {
 
 	public static void main(String[] args) {
 		log.info("Starting application");
-		GeometryList parts = DomainFactory.getCarOnGranularRoad();
-		ControllerDirectory cf = new DriveControllerServiceDirectory();
-		Camera cam = null;
-
-		// TODO: something better than this
-		for (Geometry p : parts) {
-			if (p instanceof Car) {
-				cam = p.getCamera();
-			} 
-		}
-		if (cam == null) {
-			throw new RuntimeException("Camera not found!");
-		}
 
 		int targetFps = 60;
 		int frameWidth = 800;
 		int frameHeight = 800;
 
+		GeometryList parts = DomainFactory.getGeometryObjects();
+		Camera cam = DomainFactory.getMainCamera();
+		ControllerDirectory cf = new DriveControllerServiceDirectory();
 		MainFrame.startMainFrame(parts, cf, cam, targetFps, frameWidth, frameHeight);
 	}
 }
