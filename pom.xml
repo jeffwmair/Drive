@@ -51,7 +51,7 @@
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>1.2.1</version>
 				<configuration>
-					<mainClass>drive.Main</mainClass>
+					<mainClass>com.jwm.drive.Main</mainClass>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -72,7 +72,7 @@
 						<manifest>
 							<addClasspath>true</addClasspath>
 							<classpathPrefix>lib/</classpathPrefix>
-							<mainClass>drive.Main</mainClass>
+							<mainClass>com.jwm.drive.Main</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
