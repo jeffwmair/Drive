@@ -11,37 +11,42 @@ import java.util.List;
 public class DriveGeometryFactory implements GeometryFactory {
 	private static Car c = null;
 
+	private final List<Geometry> geo;
+	private final Camera mainCamera;
 
-	/**
-	 * Get all the geometry items for the scene
- 	 * @return
-     */
-	@Override
-	public List<Geometry> buildGeometryItems() {
-		List<Geometry> geometryList = new ArrayList<>();
+	public DriveGeometryFactory() {
+		geo = new ArrayList<>();
 		double roadSeparation = 10.05;
 		for (int i = 0; i < 25; i++) {
 			for (int j = 0; j < 25; j++) {
 				Plane roadSection10Meters = new Plane();
 				roadSection10Meters.setOverallTranslation(j * roadSeparation, 0, i * -roadSeparation);
-				geometryList.add(roadSection10Meters);
+				geo.add(roadSection10Meters);
 			}
 		}
 		c = new Car();
-		geometryList.add(c);
-		return geometryList;
+		geo.add(c);
+
+		mainCamera = c.getCamera();
+	}
+
+
+	/**
+	 * Get all the geometry items for the scene
+	 * @return
+	 */
+	@Override
+	public List<Geometry> buildGeometryItems() {
+		return geo;
 	}
 
 	/**
 	 * Get the main camera to be used
 	 * @return
-     */
+	 */
 	@Override
 	public Camera getMainCamera() {
-		if (c == null) {
-			throw new RuntimeException("Car not yet initialized, so can't get the camera!");
-		}
-		return c.getCamera();
+		return mainCamera;
 	}
 
 }

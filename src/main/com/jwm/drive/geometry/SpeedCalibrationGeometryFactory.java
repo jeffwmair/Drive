@@ -13,9 +13,11 @@ import java.util.List;
  */
 public class SpeedCalibrationGeometryFactory implements GeometryFactory {
 
-    @Override
-    public List<Geometry> buildGeometryItems() {
-        List<Geometry> geo = new ArrayList<>();
+    private final List<Geometry> geo;
+    private final Camera mainCamera;
+
+    public SpeedCalibrationGeometryFactory() {
+        geo = new ArrayList<>();
 		/*
 		 * 1km of road; should take the car 36 seconds @ 100km/h Need to
 		 * temporarily set the CarController so that the mouse click sets it
@@ -29,11 +31,17 @@ public class SpeedCalibrationGeometryFactory implements GeometryFactory {
         }
         Car c = new Car();
         geo.add(c);
+
+        mainCamera = c.getCamera();
+    }
+
+    @Override
+    public List<Geometry> buildGeometryItems() {
         return geo;
     }
 
     @Override
     public Camera getMainCamera() {
-        return null;
+        return mainCamera;
     }
 }
