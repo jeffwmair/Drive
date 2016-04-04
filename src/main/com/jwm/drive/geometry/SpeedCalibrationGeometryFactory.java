@@ -29,7 +29,7 @@ public class SpeedCalibrationGeometryFactory implements GeometryFactory {
             roadSection10Meters.setOverallTranslation(0, 0, i * -10.05);
             geo.add(roadSection10Meters);
         }
-        Car c = new Car();
+        Car c = CarBuilder.buildCar();
         geo.add(c);
 
         mainCamera = c.getCamera();

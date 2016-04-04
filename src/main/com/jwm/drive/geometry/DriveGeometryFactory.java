@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DriveGeometryFactory implements GeometryFactory {
-	private static Car c = null;
 
 	private final List<Geometry> geo;
 	private final Camera mainCamera;
@@ -24,9 +23,9 @@ public class DriveGeometryFactory implements GeometryFactory {
 				geo.add(roadSection10Meters);
 			}
 		}
-		c = new Car();
-		geo.add(c);
+		Car c = CarBuilder.buildCar();
 
+		geo.add(c);
 		mainCamera = c.getCamera();
 	}
 

@@ -3,6 +3,7 @@ package com.jwm.drive.geometry;
 import com.jwm.j3dfw.geometry.Geometry;
 import com.jwm.j3dfw.geometry.Rotation;
 import com.jwm.j3dfw.geometry.Rotation.RotationDirection;
+import com.jwm.j3dfw.util.AssertUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -32,37 +33,25 @@ public class Car extends Geometry {
 	 * 
 	 */
 
-	public Car() {
+	Car(List<Geometry> children, Geometry frame, List<CarTire> allTires, List<CarTire> frontTires) {
 		super();
 
 		if (log.isDebugEnabled()) {
 			log.debug("New car");
 		}
 
-		frame = new Geometry("frame", "frame");
-		children.add(frame);
-		Geometry body = new Geometry("body", "paint_white");
-		frame.addChild(body);
-		body.addChild(new Geometry("vinylroof", "vinylroof"));
-		hood = new CarHood();
-		body.addChild(hood);
-//		body.addChild(new Geometry("door", "paint"));
-        body.addChild(new Geometry("red_plastic", "red_plastic"));
-//		body.addChild(new CarTrunk());
-		body.addChild(new Geometry("rearwindow", "rearwindow"));
-		body.addChild(new Geometry("chrome", "chrome"));
-		body.addChild(new Geometry("wheelwells", "wheelwells"));
-		putWheelsOnCar();
+		AssertUtils.notNull(children, "Must provide non-null children");
+		AssertUtils.notNull(allTires, "Must provide non-null allTires");
+		AssertUtils.notNull(frontTires, "Must provide non-null frontTires");
+		AssertUtils.notNull(frame, "Must provide non-null frame");
+		this.children = children;
+		this.allTires = allTires;
+		this.frontTires = frontTires;
+		this.frame = frame;
+
 		movement = Move.COASTING;
 
 		initCamera();
-	}
-	public void setSpeed(double speedKmph) {
-		this.speed = speedKmph;
-	}
-	private String getSpeed() {
-		DecimalFormat format = new DecimalFormat("0");
-		return format.format(speed);
 	}
 	private double getMinTurnRadius() {
 		double normalMinRadius = 0.1; // is this 100m ?
@@ -161,40 +150,7 @@ public class Car extends Geometry {
 			tire.setWheelSpeed(speed);
 		}
 	}
-	private void putWheelsOnCar() {
 
-		CarTire tireFrontLeft;
-		CarTire tireFrontRight;
-		CarTire tireRearLeft;
-		CarTire tireRearRight;
-
-		tireFrontLeft = new CarTire();
-		tireFrontRight = new CarTire();
-		tireRearLeft = new CarTire();
-		tireRearRight = new CarTire();
-
-		float TIRE_HORIZONTAL_TRANSLATE = 0.6f;
-		float TIRE_FRONT_TRANSLATE = -2.85f;
-		tireFrontLeft.setOverallTranslation(TIRE_HORIZONTAL_TRANSLATE, 0, TIRE_FRONT_TRANSLATE);
-		tireFrontRight.setOverallTranslation(-TIRE_HORIZONTAL_TRANSLATE, 0, TIRE_FRONT_TRANSLATE);
-		tireRearLeft.setOverallTranslation(TIRE_HORIZONTAL_TRANSLATE, 0, 0);
-		tireRearRight.setOverallTranslation(-TIRE_HORIZONTAL_TRANSLATE, 0, 0);
-
-		children.add(tireFrontLeft);
-		children.add(tireFrontRight);
-		children.add(tireRearLeft);
-		children.add(tireRearRight);
-
-		allTires = new ArrayList<>();
-		allTires.add(tireFrontLeft);
-		allTires.add(tireFrontRight);
-		allTires.add(tireRearLeft);
-		allTires.add(tireRearRight);
-
-		frontTires = new ArrayList<>();
-		frontTires.add(tireFrontLeft);
-		frontTires.add(tireFrontRight);
-	}
 	private double getWheelAngle() {
 		return frontTires.get(0).getTurnAngle();
 	}
