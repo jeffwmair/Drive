@@ -6,6 +6,8 @@ import com.jwm.j3dfw.geometry.Geometry;
 
 class CarControllerService extends ControllerService {
 
+	// todo: is there another way to do this without all the casting?
+
 	@Override
 	public void leftMouseDown(Geometry geometry) {
 		Car c = (Car)geometry;

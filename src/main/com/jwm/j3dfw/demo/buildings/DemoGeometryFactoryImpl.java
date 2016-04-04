@@ -5,6 +5,8 @@ import com.jwm.j3dfw.geometry.shapes.Cube;
 import com.jwm.j3dfw.production.Camera;
 import com.jwm.j3dfw.production.TargetCamera;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -15,8 +17,8 @@ public class DemoGeometryFactoryImpl implements GeometryFactory {
     TargetCamera targetCam = null;
 
     @Override
-    public GeometryList buildGeometryItems() {
-        GeometryList parts = new GeometryList();
+    public List<Geometry> buildGeometryItems() {
+        List<Geometry> parts = new ArrayList<>();
         RotatingPlane plane = new RotatingPlane();
         parts.add(plane);
 
@@ -40,12 +42,10 @@ public class DemoGeometryFactoryImpl implements GeometryFactory {
             plane.addChild(tower);
         }
 
-        Geometry geo = parts.firstOrNull(Geometry.class);
-        geo.initCamera();
-        targetCam = geo.getCamera();
+        plane.initCamera();
+        targetCam = plane.getCamera();
         targetCam.toggleAutoTrack();
 
-        //DefaultCamera cam = new DefaultCamera();
         Vertex camPos = targetCam.getPosition();
         Vertex camTarget = targetCam.getTarget();
         camTarget.setY(camTarget.getY()+20);

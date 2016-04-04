@@ -2,8 +2,8 @@ package com.jwm.j3dfw.util;
 
 import com.jogamp.opengl.util.FPSAnimator;
 import com.jwm.j3dfw.controller.ControllerDirectory;
+import com.jwm.j3dfw.geometry.Geometry;
 import com.jwm.j3dfw.geometry.GeometryFactory;
-import com.jwm.j3dfw.geometry.GeometryList;
 import com.jwm.j3dfw.production.Camera;
 import com.jwm.j3dfw.production.Scene;
 import org.apache.log4j.LogManager;
@@ -13,6 +13,7 @@ import javax.media.opengl.GLCapabilities;
 import javax.media.opengl.GLProfile;
 import javax.media.opengl.awt.GLCanvas;
 import java.awt.*;
+import java.util.List;
 
 /**
  * Main GUI frame.
@@ -43,7 +44,7 @@ public class MainFrame {
 		caps.setSampleBuffers(true);
 		GLCanvas canvas = new GLCanvas(caps);
 
-		GeometryList parts = geometryFactory.buildGeometryItems();
+		List<Geometry> parts = geometryFactory.buildGeometryItems();
 		Camera cam = geometryFactory.getMainCamera();
 		Scene scene = new Scene(parts, cam);
 		EventListener listener = new EventListener(scene, parts, controllerDirectory);

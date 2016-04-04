@@ -3,19 +3,19 @@ package com.jwm.j3dfw.util;
 import com.jwm.j3dfw.controller.ControllerDirectory;
 import com.jwm.j3dfw.controller.ControllerService;
 import com.jwm.j3dfw.geometry.Geometry;
-import com.jwm.j3dfw.geometry.GeometryList;
 import com.jwm.j3dfw.production.Scene;
 
 import java.awt.event.*;
+import java.util.List;
 
 class EventListener implements MouseMotionListener, MouseWheelListener, MouseListener, KeyListener {
 
 	private Scene activeScene;
 	private ControllerDirectory controllerDirectory;
-	private GeometryList geometryItems;
+	private List<Geometry> geometryItems;
 	private boolean cmdKey, shiftKey;
 
-	EventListener(Scene scene, GeometryList items, ControllerDirectory controllerDirectory) {
+	EventListener(Scene scene, List<Geometry> items, ControllerDirectory controllerDirectory) {
 		this.geometryItems = items;
 		this.controllerDirectory = controllerDirectory;
 		activeScene = scene;
