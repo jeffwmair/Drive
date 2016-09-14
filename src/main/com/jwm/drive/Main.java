@@ -15,12 +15,8 @@ public class Main {
 	public static void main(String[] args) {
 		log.info("Starting application");
 
-		int targetFps = 60;
-		int frameWidth = 800;
-		int frameHeight = 800;
-
 		GeometryFactory geoFactory = new DriveGeometryFactory();
 		ControllerDirectory cf = new DriveControllerServiceDirectory();
-		MainFrame.startMainFrame(geoFactory, cf, targetFps, frameWidth, frameHeight);
+		MainFrame.startMainFrameWithDefaults(geoFactory, cf);
 	}
 }
