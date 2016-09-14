@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Responsible for building a Car.
  * Created by Jeff on 2016-04-03.
  */
 public class CarBuilder {
 
 	public static Car buildCar() {
-
 
 		List<Geometry> children = new ArrayList<>();
 		Geometry frame = new Geometry("frame", "frame");

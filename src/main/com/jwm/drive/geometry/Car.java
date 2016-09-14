@@ -7,16 +7,17 @@ import com.jwm.j3dfw.util.AssertUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
-import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.List;
-
-// todo: see above making Car package-private; just use public factories
 
 public class Car extends Geometry {
 
 	private static Logger log = LogManager.getLogger(Car.class);
+	private static int moveCounter;
 
+	public enum Move { COASTING, ACCELERATING, DECELERATING, STEADY }
+
+	private double carRotationAngle;
+	private double currentSpeed;
 	private double SPEED_TO_GEO_SPACE_FRAME = 0.005; // verified Nov 17 2014
 	private static final double FRONT_WHEEL_MAX_TURN_ANGLE = 35.0;
 	private CarHood hood = null;
@@ -30,7 +31,7 @@ public class Car extends Geometry {
 	 * Issues: body roll - frame is rotation along the right side, not in the
 	 * middle shortcut to align the camera with the rear of the car; otherwise,
 	 * allow to stay in one orientation as long as the car is in view?
-	 * 
+	 *
 	 */
 
 	Car(List<Geometry> children, Geometry frame, List<CarTire> allTires, List<CarTire> frontTires) {
@@ -44,11 +45,13 @@ public class Car extends Geometry {
 		AssertUtils.notNull(allTires, "Must provide non-null allTires");
 		AssertUtils.notNull(frontTires, "Must provide non-null frontTires");
 		AssertUtils.notNull(frame, "Must provide non-null frame");
+
 		this.children = children;
 		this.allTires = allTires;
 		this.frontTires = frontTires;
 		this.frame = frame;
 
+		// initial movement
 		movement = Move.COASTING;
 
 		initCamera();
@@ -155,15 +158,6 @@ public class Car extends Geometry {
 		return frontTires.get(0).getTurnAngle();
 	}
 
-		private static int moveCounter;
-
-	public enum Move {
-		COASTING, ACCELERATING, DECELERATING, STEADY
-	}
-
-	private double carRotationAngle;
-	private double currentSpeed;
-
 	private void process(Move type) {
 		adjustSpeed(type);
 		adjustPosition(type);
@@ -177,30 +171,30 @@ public class Car extends Geometry {
 
 	private void adjustSpeed(Move type) {
 		switch (type) {
-		case ACCELERATING:
-			double MAX_SPEED = 150;
-			if (this.currentSpeed >= MAX_SPEED)
-				return;
-			double ACCELERATION = 0.25;
-			currentSpeed = currentSpeed + ACCELERATION;
-			break;
-		case COASTING:
-			resetForwardBackLeanAngle();
-			if (currentSpeed <= 0) {
-				currentSpeed = 0;
-				return;
-			}
-			double COAST_DECELERATION = -0.1;
-			currentSpeed = currentSpeed + COAST_DECELERATION;
-			break;
-		case DECELERATING:
-			if (this.currentSpeed <= 0)
-				return;
-			double DECELERATION = -1;
-			currentSpeed = currentSpeed + DECELERATION;
-			break;
-		case STEADY:
-			break;
+			case ACCELERATING:
+				double MAX_SPEED = 150;
+				if (this.currentSpeed >= MAX_SPEED)
+					return;
+				double ACCELERATION = 0.25;
+				currentSpeed = currentSpeed + ACCELERATION;
+				break;
+			case COASTING:
+				resetForwardBackLeanAngle();
+				if (currentSpeed <= 0) {
+					currentSpeed = 0;
+					return;
+				}
+				double COAST_DECELERATION = -0.1;
+				currentSpeed = currentSpeed + COAST_DECELERATION;
+				break;
+			case DECELERATING:
+				if (this.currentSpeed <= 0)
+					return;
+				double DECELERATION = -1;
+				currentSpeed = currentSpeed + DECELERATION;
+				break;
+			case STEADY:
+				break;
 		}
 	}
 
