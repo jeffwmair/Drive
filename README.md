@@ -4,7 +4,7 @@
 Uses [J3DFW](https://github.com/jeffwmair/j3dfw), which is a really just a wrapper around the JOGL framework to add some additional helpful abstraction.
 ## Getting Started
 ```shell
-$ git clone git@github.com:jeffwmair/Drive.git
+$ git clone https://github.com/jeffwmair/Drive.git
 $ cd Drive
 $ mvn package
 $ cd target/
