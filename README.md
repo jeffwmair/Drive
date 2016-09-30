@@ -41,5 +41,5 @@ Quick screenshots of the current progress.
 Render from Blender:
 ![Alt text](/documentation/img/render.png)
 
-The original:
+The original (my baby):
 ![Alt text](/documentation/img/original.png)
