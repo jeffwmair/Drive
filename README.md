@@ -2,11 +2,21 @@
 3D Driving Game/Simulation in Java
 
 Uses [J3DFW](https://github.com/jeffwmair/j3dfw), which is a really just a wrapper around the JOGL framework to add some additional helpful abstraction.
-## Getting Started
+
+## Basic Prerequisites
+Requires java, maven, and OpenGL support
 ```shell
-git clone https://github.com/jeffwmair/Drive.git
-cd Drive
-mvn package
+sudo apt-get update -y
+sudo apt-get install maven -y
+sudo apt-get install default-jre -y
+sudo apt-get install default-jdk -y
+```
+
+## Installation
+```shell
+# Requires j3dfw
+git clone https://github.com/jeffwmair/j3dfw.git && cd j3dfw/ && mvn install && cd ../
+git clone https://github.com/jeffwmair/Drive.git && cd Drive/ && mvn package
 cd target/
 java -jar Drive-1.0.jar
 ```
