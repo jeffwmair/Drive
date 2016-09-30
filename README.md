@@ -5,6 +5,9 @@ Uses [J3DFW](https://github.com/jeffwmair/j3dfw), which is a really just a wrapp
 
 ## Basic Prerequisites
 Requires java, maven, and OpenGL support
+
+Scripts for installation in Ubuntu, if necessary.
+
 ```shell
 sudo apt-get update -y
 sudo apt-get install maven -y
