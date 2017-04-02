@@ -4,14 +4,14 @@ import com.jwm.j3dfw.geometry.Geometry;
 import com.jwm.j3dfw.geometry.Rotation;
 import com.jwm.j3dfw.geometry.Rotation.RotationDirection;
 import com.jwm.j3dfw.util.AssertUtils;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 
 import java.util.List;
 
 public class Car extends Geometry {
 
-	private static Logger log = LogManager.getLogger(Car.class);
+	private static Logger log = LoggerFactory.getLogger(Car.class);
 	private static int moveCounter;
 
 	public enum Move { COASTING, ACCELERATING, DECELERATING, STEADY }
@@ -37,9 +37,7 @@ public class Car extends Geometry {
 	Car(List<Geometry> children, Geometry frame, List<CarTire> allTires, List<CarTire> frontTires) {
 		super();
 
-		if (log.isDebugEnabled()) {
 			log.debug("New car");
-		}
 
 		AssertUtils.notNull(children, "Must provide non-null children");
 		AssertUtils.notNull(allTires, "Must provide non-null allTires");
