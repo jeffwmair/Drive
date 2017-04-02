@@ -20,8 +20,8 @@ public class Car extends Geometry {
 	private double currentSpeed;
 	private double SPEED_TO_GEO_SPACE_FRAME = 0.005; // verified Nov 17 2014
 	private static final double FRONT_WHEEL_MAX_TURN_ANGLE = 35.0;
-	private CarHood hood = null;
-	private Geometry frame = null;
+	private CarHood hood;
+	private Geometry frame;
 	private List<CarTire> allTires;
 	private List<CarTire> frontTires;
 	private Move movement;
